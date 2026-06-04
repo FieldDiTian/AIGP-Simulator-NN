@@ -28,16 +28,11 @@ def update_motor_control(mavlink_conn, system_boot_ms):
 # --------------------------------------------------------------------------------------
 # ATTITUDE CONTROLS
 # --------------------------------------------------------------------------------------
-PITCH_RATE = -0.3   # rad/s (negative = pitch forward)
-ROLL_RATE  = 0.0
-YAW_RATE   = 0.0
-THRUST     = 0.6    # 0.0 - 1.0
-
 RATES_ATTITUDE_MASK = (
     mavutil.mavlink.ATTITUDE_TARGET_TYPEMASK_ATTITUDE_IGNORE
 )
 
-def update_attitude_flight_control(mavlink_conn, system_boot_ms):
+def update_attitude_flight_control(mavlink_conn, system_boot_ms, command):
     now_ms = int(time.time() * 1000)
 
     """
@@ -60,10 +55,10 @@ def update_attitude_flight_control(mavlink_conn, system_boot_ms):
         mavlink_conn.target_component,
         RATES_ATTITUDE_MASK,
         [1, 0, 0, 0],  # dummy quaternion (ignored)
-        ROLL_RATE,
-        PITCH_RATE,
-        YAW_RATE,
-        THRUST
+        command.roll_rate,
+        command.pitch_rate,
+        command.yaw_rate,
+        command.thrust
     )
 
 # --------------------------------------------------------------------------------------
@@ -124,22 +119,34 @@ def update_position_flight_control(mavlink_conn, system_boot_ms):
 # Control Loop
 # --------------------------------------------------------------------------------------
 
-CONTROL_HZ = 250
+CONTROL_HZ = 60
 
 class Controller:
-    def __init__(self, sim_conn, data, system_boot_ms):
+    def __init__(self, sim_conn, data, system_boot_ms, command_source):
         self.sim_conn = sim_conn
         self.data = data
         self.system_boot_ms = system_boot_ms
+        self.command_source = command_source
 
     def update(self):
-        # send automated targets to sim flight controller
-        #update_attitude_flight_control(self.sim_conn, self.system_boot_ms)
+        command = self.command_source.read_command()
+
+        if command.exit_requested:
+            return False
+
+        # send manual attitude-rate targets to sim flight controller
+        update_attitude_flight_control(self.sim_conn, self.system_boot_ms, command)
         # alternatively one of
         # update_position_flight_control(self.sim_conn, self.system_boot_ms)
-        update_motor_control(self.sim_conn, self.system_boot_ms)
+        # update_motor_control(self.sim_conn, self.system_boot_ms)
 
         time.sleep(1.0 / CONTROL_HZ)
+        return True
+
+    def shutdown(self):
+        close = getattr(self.command_source, "close", None)
+        if close is not None:
+            close()
 
     # -------------------------------
     # Arm the drone

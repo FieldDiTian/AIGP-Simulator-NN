@@ -27,12 +27,18 @@ print("Arming drone...", flush=True)
 controller.arm()
 print("Starting control loop...", flush=True)
 is_running = True
-while is_running:
-    controller.update()
+try:
+    while is_running:
+        is_running = controller.update()
+except KeyboardInterrupt:
+    print("\nControl loop interrupted.", flush=True)
+finally:
+    controller.shutdown()
 
-# exit
-ts_loop.get_thread_for_join().join(timeout=1.0)
-mavlink_rx.get_thread_for_join().join(timeout=1.0)
-vision_rx.get_thread_for_join().join(timeout=1.0)
+    # exit
+    for component in (ts_loop, mavlink_rx, vision_rx):
+        thread = component.get_thread_for_join()
+        if thread is not None:
+            thread.join(timeout=1.0)
 
 print("Client exited!", flush=True)
