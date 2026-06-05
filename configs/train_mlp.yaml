@@ -1,0 +1,13 @@
+input_dim: 220
+output_dim: 12
+hidden_dim: 64
+num_layers: 2
+k: 10
+state_dim: 16
+action_dim: 4
+use_actuator: True
+learning_rate: 0.001
+batch_size: 256
+epochs: 2
+weight_decay: 0.0001
+early_stopping_patience: 2

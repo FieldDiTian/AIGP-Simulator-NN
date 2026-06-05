@@ -5,14 +5,24 @@ from mavlink_rx import MAVLinkRX
 from controller import Controller
 from keyboard_control import KeyboardControlConsole
 
-def setup_components(shared_data, system_boot_ms, server_ip, server_udp_port):
+def setup_components(
+        shared_data,
+        system_boot_ms,
+        server_ip,
+        server_udp_port,
+        command_source=None,
+        logger=None,
+        start_vision=True,
+        heartbeat_timeout_s=None):
     # -------------------------------
     # Mavlink Connection
     # -------------------------------
     # Start a connection listening on a UDP port
     sim_conn = mavutil.mavlink_connection('udpin:%s:%s' % (server_ip, server_udp_port,))
     print("Waiting for heartbeat...", flush=True)
-    sim_conn.wait_heartbeat()
+    heartbeat = sim_conn.wait_heartbeat(timeout=heartbeat_timeout_s)
+    if heartbeat is None:
+        raise TimeoutError("Timed out waiting for MAVLink heartbeat.")
     print(f"Connected to system: {sim_conn.target_system}", flush=True)
 
     # -------------------------------
@@ -30,13 +40,14 @@ def setup_components(shared_data, system_boot_ms, server_ip, server_udp_port):
     # -------------------------------
     # Connect Vision receiver
     # -------------------------------
-    vision_rx = VisionRX(shared_data)
+    vision_rx = VisionRX(shared_data) if start_vision else None
 
     # -------------------------------
     # Main control loop
     # -------------------------------
-    command_source = KeyboardControlConsole()
-    controller = Controller(sim_conn, shared_data, system_boot_ms, command_source)
+    if command_source is None:
+        command_source = KeyboardControlConsole()
+    controller = Controller(sim_conn, shared_data, system_boot_ms, command_source, logger=logger)
 
     return {
         'vision_rx': vision_rx,

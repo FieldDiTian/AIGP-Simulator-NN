@@ -34,6 +34,8 @@ RATES_ATTITUDE_MASK = (
 
 def update_attitude_flight_control(mavlink_conn, system_boot_ms, command):
     now_ms = int(time.time() * 1000)
+    time_boot_ms = now_ms - system_boot_ms
+    t_send_wall_ns = time.time_ns()
 
     """
     Sets a desired vehicle attitude. Used by an external controller to
@@ -50,7 +52,7 @@ def update_attitude_flight_control(mavlink_conn, system_boot_ms, command):
     thrust                    : Collective thrust, normalized to 0 .. 1 (-1 .. 1 for vehicles capable of reverse trust) (type:float)
     """
     mavlink_conn.mav.set_attitude_target_send(
-        now_ms - system_boot_ms,
+        time_boot_ms,
         mavlink_conn.target_system,
         mavlink_conn.target_component,
         RATES_ATTITUDE_MASK,
@@ -60,6 +62,15 @@ def update_attitude_flight_control(mavlink_conn, system_boot_ms, command):
         command.yaw_rate,
         command.thrust
     )
+    return {
+        "control_mode": "SET_ATTITUDE_TARGET",
+        "t_send_wall_ns": int(t_send_wall_ns),
+        "time_boot_ms": int(time_boot_ms),
+        "roll_rate_cmd": float(command.roll_rate),
+        "pitch_rate_cmd": float(command.pitch_rate),
+        "yaw_rate_cmd": float(command.yaw_rate),
+        "thrust_cmd": float(command.thrust),
+    }
 
 # --------------------------------------------------------------------------------------
 # POSITION CONTROLS
@@ -122,11 +133,12 @@ def update_position_flight_control(mavlink_conn, system_boot_ms):
 CONTROL_HZ = 60
 
 class Controller:
-    def __init__(self, sim_conn, data, system_boot_ms, command_source):
+    def __init__(self, sim_conn, data, system_boot_ms, command_source, logger=None):
         self.sim_conn = sim_conn
         self.data = data
         self.system_boot_ms = system_boot_ms
         self.command_source = command_source
+        self.logger = logger
 
     def update(self):
         command = self.command_source.read_command()
@@ -135,7 +147,9 @@ class Controller:
             return False
 
         # send manual attitude-rate targets to sim flight controller
-        update_attitude_flight_control(self.sim_conn, self.system_boot_ms, command)
+        action_log = update_attitude_flight_control(self.sim_conn, self.system_boot_ms, command)
+        if self.logger is not None:
+            self.logger.write_sample(self.data, action_log)
         # alternatively one of
         # update_position_flight_control(self.sim_conn, self.system_boot_ms)
         # update_motor_control(self.sim_conn, self.system_boot_ms)
@@ -147,6 +161,8 @@ class Controller:
         close = getattr(self.command_source, "close", None)
         if close is not None:
             close()
+        if self.logger is not None:
+            self.logger.close()
 
     # -------------------------------
     # Arm the drone

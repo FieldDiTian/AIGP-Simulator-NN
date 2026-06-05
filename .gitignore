@@ -1,1 +1,6 @@
 AIGP_3364/
+logs/
+checkpoints/
+__pycache__/
+*.pyc
+.venv/

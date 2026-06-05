@@ -5,7 +5,13 @@ pymavlink
 #cv2
 opencv-python
 numpy
+torch
 
 # Debug
 matplotlib
 keyboard
+
+# Optional UI automation for scripts/launch_flightsim.py --mode ui-auto
+pyautogui
+pydirectinput
+pywin32

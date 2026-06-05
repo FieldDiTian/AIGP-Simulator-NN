@@ -3,6 +3,7 @@
 #
 
 import time
+import threading
 
 from setup import setup_components
 
@@ -14,7 +15,7 @@ SIM_SERVER_UDP_PORT = 14550
 system_boot_ms = int(time.time() * 1000)
 
 # arbitrary shared data between the various components
-shared_data = {}
+shared_data = {"_lock": threading.RLock()}
 
 # setup components
 components = setup_components(shared_data, system_boot_ms, SIM_SERVER_UDP_IP, SIM_SERVER_UDP_PORT)
@@ -37,6 +38,8 @@ finally:
 
     # exit
     for component in (ts_loop, mavlink_rx, vision_rx):
+        if component is None:
+            continue
         thread = component.get_thread_for_join()
         if thread is not None:
             thread.join(timeout=1.0)
