@@ -4,18 +4,18 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from models.dynamics_math import (
+from dynamics.models.dynamics_math import (
     GRAVITY_NED,
     normalize_quat,
     quat_to_rotmat,
     rotmat_to_quat,
     rotvec_to_rotmat,
 )
-from models.mlp_dynamics import build_model
+from dynamics.models.mlp_dynamics import build_model
 
 
 class NeuralDroneDynamics:
-    def __init__(self, model_path, norm_path=None, device=None):
+    def __init__(self, model_path, norm_path=None, device=None, position_integration=None):
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         checkpoint = torch.load(model_path, map_location=self.device)
         self.config = checkpoint["model_config"]
@@ -32,10 +32,17 @@ class NeuralDroneDynamics:
         self.k = int(self.stats["k"])
         self.max_rate = float(self.stats.get("max_rate", 1.0))
         self.use_actuator = bool(self.stats.get("use_actuator", True))
+        self.use_imu = bool(self.stats.get("use_imu", True))
         self.x_mean = np.asarray(self.stats["x_mean"], dtype=np.float32)
         self.x_std = np.asarray(self.stats["x_std"], dtype=np.float32)
         self.y_mean = np.asarray(self.stats["y_mean"], dtype=np.float32)
         self.y_std = np.asarray(self.stats["y_std"], dtype=np.float32)
+        self.dt = float(self.stats.get("dt", 1.0 / float(self.stats.get("hz", 60.0))))
+        self.position_integration = (
+            position_integration
+            or self.stats.get("position_integration")
+            or "delta"
+        )
         self.state = None
         self.history = []
 
@@ -51,6 +58,22 @@ class NeuralDroneDynamics:
         zero_action = np.zeros(4, dtype=np.float32)
         feature = self._state_feature(self.state)
         self.history = [(feature, zero_action) for _ in range(self.k + 1)]
+        return self.current_state()
+
+    def reset_with_history(self, initial_state, history):
+        self.reset(initial_state)
+        parsed = [
+            (
+                np.asarray(state_feature, dtype=np.float32),
+                np.asarray(action_norm, dtype=np.float32),
+            )
+            for state_feature, action_norm in history
+        ]
+        if not parsed:
+            return self.current_state()
+        if len(parsed) < self.k:
+            parsed = [parsed[0]] * (self.k - len(parsed)) + parsed
+        self.history = parsed[-self.k:]
         return self.current_state()
 
     def step(self, action):
@@ -90,8 +113,9 @@ class NeuralDroneDynamics:
             v_body,
             state["omega"],
             gravity_body,
-            state["imu_acc"],
         ]
+        if self.use_imu:
+            parts.append(state["imu_acc"])
         if self.use_actuator:
             parts.append(state["actuator"][:4])
         return np.concatenate(parts).astype(np.float32)
@@ -112,8 +136,23 @@ class NeuralDroneDynamics:
         omega_next = pred[9:12].astype(np.float64)
 
         R = quat_to_rotmat(self.state["q_wxyz"])
-        R_next = R @ rotvec_to_rotmat(delta_rotvec_body)
-        self.state["p_ned"] = self.state["p_ned"] + R @ delta_p_body
+        delta_R = rotvec_to_rotmat(delta_rotvec_body)
+        R_next = R @ delta_R
+        if self.position_integration == "velocity":
+            v_body_current = R.T @ self.state["v_ned"]
+            self.state["p_ned"] = self.state["p_ned"] + (
+                0.5 * (R @ v_body_current + R_next @ v_body_next) * self.dt
+            )
+        elif self.position_integration == "blend":
+            v_body_current = R.T @ self.state["v_ned"]
+            delta_p_from_v = R.T @ (
+                0.5 * (R @ v_body_current + R_next @ v_body_next) * self.dt
+            )
+            self.state["p_ned"] = self.state["p_ned"] + R @ (
+                0.5 * delta_p_body + 0.5 * delta_p_from_v
+            )
+        else:
+            self.state["p_ned"] = self.state["p_ned"] + R @ delta_p_body
         self.state["q_wxyz"] = rotmat_to_quat(R_next)
         self.state["v_ned"] = R_next @ v_body_next
         self.state["omega"] = omega_next
@@ -121,5 +160,10 @@ class NeuralDroneDynamics:
         # Keep their last observed values so history dimensions remain consistent.
 
 
-def load_neural_dynamics(model_path, norm_path=None, device=None):
-    return NeuralDroneDynamics(Path(model_path), norm_path=norm_path, device=device)
+def load_neural_dynamics(model_path, norm_path=None, device=None, position_integration=None):
+    return NeuralDroneDynamics(
+        Path(model_path),
+        norm_path=norm_path,
+        device=device,
+        position_integration=position_integration,
+    )

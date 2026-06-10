@@ -11,7 +11,7 @@ torch
 matplotlib
 keyboard
 
-# Optional UI automation for scripts/launch_flightsim.py --mode ui-auto
+# Optional UI automation for dynamics/collection/launch_flightsim.py --mode ui-auto
 pyautogui
 pydirectinput
 pywin32

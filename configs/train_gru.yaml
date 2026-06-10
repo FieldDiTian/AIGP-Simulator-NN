@@ -1,9 +1,9 @@
-model_type: mlp
+model_type: gru
 input_dim: 143
 output_dim: 12
-hidden_dim: 512
-num_layers: 5
-dropout: 0.0
+hidden_dim: 384
+num_layers: 3
+dropout: 0.05
 k: 10
 state_dim: 9
 action_dim: 4
@@ -11,7 +11,7 @@ use_actuator: false
 use_imu: false
 learning_rate: 0.0005
 batch_size: 2048
-epochs: 20
+epochs: 24
 weight_decay: 0.0001
 early_stopping_patience: 6
 init_checkpoint: null

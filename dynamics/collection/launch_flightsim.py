@@ -1,4 +1,5 @@
 import argparse
+import ctypes
 import json
 import os
 import subprocess
@@ -9,8 +10,88 @@ from pathlib import Path
 from pymavlink import mavutil
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_EXE = ROOT / "AIGP_3364" / "FlightSim.exe"
+
+
+class Rect(ctypes.Structure):
+    _fields_ = [
+        ("left", ctypes.c_long),
+        ("top", ctypes.c_long),
+        ("right", ctypes.c_long),
+        ("bottom", ctypes.c_long),
+    ]
+
+
+class MouseInput(ctypes.Structure):
+    _fields_ = [
+        ("dx", ctypes.c_long),
+        ("dy", ctypes.c_long),
+        ("mouseData", ctypes.c_ulong),
+        ("dwFlags", ctypes.c_ulong),
+        ("time", ctypes.c_ulong),
+        ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong)),
+    ]
+
+
+class KeyBdInput(ctypes.Structure):
+    _fields_ = [
+        ("wVk", ctypes.c_ushort),
+        ("wScan", ctypes.c_ushort),
+        ("dwFlags", ctypes.c_ulong),
+        ("time", ctypes.c_ulong),
+        ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong)),
+    ]
+
+
+class HardwareInput(ctypes.Structure):
+    _fields_ = [
+        ("uMsg", ctypes.c_ulong),
+        ("wParamL", ctypes.c_short),
+        ("wParamH", ctypes.c_ushort),
+    ]
+
+
+class InputUnion(ctypes.Union):
+    _fields_ = [
+        ("mi", MouseInput),
+        ("ki", KeyBdInput),
+        ("hi", HardwareInput),
+    ]
+
+
+class Input(ctypes.Structure):
+    _fields_ = [
+        ("type", ctypes.c_ulong),
+        ("union", InputUnion),
+    ]
+
+
+INPUT_MOUSE = 0
+INPUT_KEYBOARD = 1
+KEYEVENTF_KEYUP = 0x0002
+KEYEVENTF_SCANCODE = 0x0008
+MOUSEEVENTF_MOVE = 0x0001
+MOUSEEVENTF_LEFTDOWN = 0x0002
+MOUSEEVENTF_LEFTUP = 0x0004
+MOUSEEVENTF_ABSOLUTE = 0x8000
+
+
+def set_process_dpi_aware():
+    if os.name != "nt":
+        return
+    try:
+        ctypes.windll.shcore.SetProcessDpiAwareness(2)
+        return
+    except Exception:
+        pass
+    try:
+        ctypes.windll.user32.SetProcessDPIAware()
+    except Exception:
+        pass
+
+
+set_process_dpi_aware()
 
 
 def wait_heartbeat(host, port, timeout_s):
@@ -93,7 +174,43 @@ def save_screenshot(path):
 
 
 def window_screenshot(pyautogui, window):
-    return pyautogui.screenshot(region=(window.left, window.top, window.width, window.height))
+    left, top, width, height = window_region(window)
+    return pyautogui.screenshot(region=(left, top, width, height))
+
+
+def window_region(window):
+    hwnd = getattr(window, "_hWnd", None)
+    if hwnd and os.name == "nt":
+        rect = Rect()
+        try:
+            dwmapi = ctypes.windll.dwmapi
+            # DWMWA_EXTENDED_FRAME_BOUNDS returns the visible window bounds.
+            result = dwmapi.DwmGetWindowAttribute(
+                ctypes.c_void_p(hwnd),
+                ctypes.c_uint(9),
+                ctypes.byref(rect),
+                ctypes.sizeof(rect),
+            )
+            if result == 0:
+                return (
+                    int(rect.left),
+                    int(rect.top),
+                    int(rect.right - rect.left),
+                    int(rect.bottom - rect.top),
+                )
+        except Exception:
+            pass
+        try:
+            ctypes.windll.user32.GetWindowRect(ctypes.c_void_p(hwnd), ctypes.byref(rect))
+            return (
+                int(rect.left),
+                int(rect.top),
+                int(rect.right - rect.left),
+                int(rect.bottom - rect.top),
+            )
+        except Exception:
+            pass
+    return int(window.left), int(window.top), int(window.width), int(window.height)
 
 
 def color_ratio(image, rel_box, color):
@@ -143,11 +260,12 @@ def find_game_window(pyautogui, timeout_s):
             title = (window.title or "").strip()
             if title:
                 last_titles.append(title)
-            if title == "AI-GP" and window.width > 500 and window.height > 300 and window.left > -1000:
+            left, top, width, height = window_region(window)
+            if title == "AI-GP" and width > 500 and height > 300 and left > -1000:
                 candidates.append(window)
 
         if candidates:
-            candidates.sort(key=lambda w: w.width * w.height, reverse=True)
+            candidates.sort(key=lambda w: window_region(w)[2] * window_region(w)[3], reverse=True)
             return candidates[0]
         time.sleep(0.25)
 
@@ -165,13 +283,163 @@ def load_input_driver(pyautogui):
 
 
 def send_click(input_driver, x, y):
-    input_driver.moveTo(int(x), int(y))
+    x = int(x)
+    y = int(y)
+    try:
+        send_click_with_sendinput(x, y)
+    except Exception:
+        pass
+    try:
+        send_click_with_win32(x, y)
+    except Exception:
+        pass
+    input_driver.moveTo(x, y)
     time.sleep(0.05)
     input_driver.click()
+    try:
+        import pyautogui
+
+        pyautogui.click(x, y)
+    except Exception:
+        pass
+
+
+def send_click_with_sendinput(x, y):
+    if os.name != "nt":
+        return
+    abs_x, abs_y = screen_to_absolute(x, y)
+    extra = ctypes.c_ulong(0)
+    inputs = (Input * 3)(
+        Input(
+            type=INPUT_MOUSE,
+            union=InputUnion(mi=MouseInput(
+                dx=abs_x,
+                dy=abs_y,
+                mouseData=0,
+                dwFlags=MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE,
+                time=0,
+                dwExtraInfo=ctypes.pointer(extra),
+            )),
+        ),
+        Input(
+            type=INPUT_MOUSE,
+            union=InputUnion(mi=MouseInput(
+                dx=abs_x,
+                dy=abs_y,
+                mouseData=0,
+                dwFlags=MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_ABSOLUTE,
+                time=0,
+                dwExtraInfo=ctypes.pointer(extra),
+            )),
+        ),
+        Input(
+            type=INPUT_MOUSE,
+            union=InputUnion(mi=MouseInput(
+                dx=abs_x,
+                dy=abs_y,
+                mouseData=0,
+                dwFlags=MOUSEEVENTF_LEFTUP | MOUSEEVENTF_ABSOLUTE,
+                time=0,
+                dwExtraInfo=ctypes.pointer(extra),
+            )),
+        ),
+    )
+    ctypes.windll.user32.SendInput(len(inputs), ctypes.byref(inputs), ctypes.sizeof(Input))
+
+
+def screen_to_absolute(x, y):
+    user32 = ctypes.windll.user32
+    left = user32.GetSystemMetrics(76)
+    top = user32.GetSystemMetrics(77)
+    width = max(1, user32.GetSystemMetrics(78))
+    height = max(1, user32.GetSystemMetrics(79))
+    abs_x = int((int(x) - left) * 65535 / max(1, width - 1))
+    abs_y = int((int(y) - top) * 65535 / max(1, height - 1))
+    return abs_x, abs_y
+
+
+def send_click_with_win32(x, y):
+    if os.name != "nt":
+        return
+    user32 = ctypes.windll.user32
+    user32.SetCursorPos(int(x), int(y))
+    time.sleep(0.05)
+    user32.mouse_event(0x0002, 0, 0, 0, 0)
+    time.sleep(0.05)
+    user32.mouse_event(0x0004, 0, 0, 0, 0)
 
 
 def send_press(input_driver, key):
+    try:
+        send_key_with_sendinput(key)
+    except Exception:
+        pass
     input_driver.press(key)
+    try:
+        import pyautogui
+
+        pyautogui.press(key)
+    except Exception:
+        pass
+    try:
+        send_key_with_win32(key)
+    except Exception:
+        pass
+
+
+def send_key_with_sendinput(key):
+    if os.name != "nt":
+        return
+    vk_map = {
+        "enter": 0x0D,
+        "space": 0x20,
+        "esc": 0x1B,
+    }
+    vk = vk_map.get(str(key).lower())
+    if vk is None:
+        return
+    scan = ctypes.windll.user32.MapVirtualKeyW(vk, 0)
+    extra = ctypes.c_ulong(0)
+    inputs = (Input * 2)(
+        Input(
+            type=INPUT_KEYBOARD,
+            union=InputUnion(ki=KeyBdInput(
+                wVk=0,
+                wScan=scan,
+                dwFlags=KEYEVENTF_SCANCODE,
+                time=0,
+                dwExtraInfo=ctypes.pointer(extra),
+            )),
+        ),
+        Input(
+            type=INPUT_KEYBOARD,
+            union=InputUnion(ki=KeyBdInput(
+                wVk=0,
+                wScan=scan,
+                dwFlags=KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP,
+                time=0,
+                dwExtraInfo=ctypes.pointer(extra),
+            )),
+        ),
+    )
+    ctypes.windll.user32.SendInput(len(inputs), ctypes.byref(inputs), ctypes.sizeof(Input))
+
+
+def send_key_with_win32(key):
+    if os.name != "nt":
+        return
+    vk_map = {
+        "enter": 0x0D,
+        "space": 0x20,
+        "esc": 0x1B,
+    }
+    vk = vk_map.get(str(key).lower())
+    if vk is None:
+        return
+    user32 = ctypes.windll.user32
+    user32.keybd_event(vk, 0, 0, 0)
+    time.sleep(0.05)
+    user32.keybd_event(vk, 0, 2, 0)
 
 
 def focus_window(pyautogui, input_driver, window):
@@ -180,6 +448,7 @@ def focus_window(pyautogui, input_driver, window):
         try:
             import win32con
             import win32gui
+            import win32process
 
             win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
             win32gui.SetWindowPos(
@@ -200,8 +469,29 @@ def focus_window(pyautogui, input_driver, window):
                 0,
                 win32con.SWP_NOMOVE | win32con.SWP_NOSIZE,
             )
+            foreground = win32gui.GetForegroundWindow()
+            current_thread = win32api_get_current_thread_id()
+            target_thread, _ = win32process.GetWindowThreadProcessId(hwnd)
+            foreground_thread, _ = win32process.GetWindowThreadProcessId(foreground)
+            try:
+                ctypes.windll.user32.AllowSetForegroundWindow(-1)
+            except Exception:
+                pass
+            try:
+                ctypes.windll.user32.AttachThreadInput(current_thread, target_thread, True)
+                ctypes.windll.user32.AttachThreadInput(current_thread, foreground_thread, True)
+                win32gui.SetForegroundWindow(hwnd)
+                win32gui.SetActiveWindow(hwnd)
+                win32gui.SetFocus(hwnd)
+            finally:
+                ctypes.windll.user32.AttachThreadInput(current_thread, target_thread, False)
+                ctypes.windll.user32.AttachThreadInput(current_thread, foreground_thread, False)
             win32gui.BringWindowToTop(hwnd)
             win32gui.SetForegroundWindow(hwnd)
+            try:
+                ctypes.windll.user32.SwitchToThisWindow(ctypes.c_void_p(hwnd), True)
+            except Exception:
+                pass
         except Exception:
             pass
     try:
@@ -214,13 +504,20 @@ def focus_window(pyautogui, input_driver, window):
     except Exception:
         # Some Unreal windows reject Win32 activation; a title-bar click is enough to focus it.
         pass
-    send_click(input_driver, window.left + min(80, window.width / 2), window.top + min(20, window.height / 2))
+    left, top, width, height = window_region(window)
+    send_click(input_driver, left + min(80, width / 2), top + min(20, height / 2))
+    send_click(input_driver, left + width * 0.50, top + height * 0.50)
     time.sleep(0.2)
 
 
+def win32api_get_current_thread_id():
+    return ctypes.windll.kernel32.GetCurrentThreadId()
+
+
 def click_relative(input_driver, window, x_ratio, y_ratio):
-    x = window.left + window.width * x_ratio
-    y = window.top + window.height * y_ratio
+    left, top, width, height = window_region(window)
+    x = left + width * x_ratio
+    y = top + height * y_ratio
     send_click(input_driver, x, y)
 
 
@@ -239,15 +536,23 @@ def click_relative_many(input_driver, window, x_ratio, y_ratio, clicks=1, interv
         click_relative(input_driver, window, x_ratio, y_ratio)
 
 
+def press_any_button_burst(input_driver, window):
+    left, top, width, height = window_region(window)
+    focus_x = left + width * 0.50
+    focus_y = top + height * 0.36
+    for _ in range(3):
+        send_click(input_driver, focus_x, focus_y)
+        time.sleep(0.2)
+    for key in ("enter", "space", "enter"):
+        send_press(input_driver, key)
+        time.sleep(0.25)
+
+
 def default_aigp_ui_sequence():
     return [
         {
             "name": "press_any_button",
-            "action": "click_relative",
-            "x": 0.50,
-            "y": 0.36,
-            "clicks": 2,
-            "interval_s": 0.4,
+            "action": "press_any_button_burst",
             "wait_s": 2.0,
             "description": "click the splash screen prompt",
         },
@@ -298,6 +603,9 @@ def load_ui_sequence(path):
 
 def execute_ui_step(input_driver, window, step):
     action = step.get("action")
+    if action == "press_any_button_burst":
+        press_any_button_burst(input_driver, window)
+        return
     if action == "press":
         send_press(input_driver, step["key"])
         return
@@ -326,8 +634,7 @@ def wait_for_flight_ui(pyautogui, input_driver, deadline, host, port, screenshot
 
         attempt += 1
         print(f"ui-auto flight attempt {attempt}: advance any current screen toward RACE.", flush=True)
-        click_relative_many(input_driver, window, 0.50, 0.36, clicks=2, interval_s=0.35)
-        send_press(input_driver, "enter")
+        press_any_button_burst(input_driver, window)
         time.sleep(1.0)
         dismiss_transient_overlays(input_driver, window)
         if screenshot_dir:
@@ -410,7 +717,8 @@ def run_ui_auto(anchor_dir, screenshot_dir, timeout_s, host, port, ready_signal,
     window = find_game_window(pyautogui, window_timeout)
     print(
         f"ui-auto: using window '{window.title.strip()}' "
-        f"at x={window.left} y={window.top} w={window.width} h={window.height}",
+        f"at x={window_region(window)[0]} y={window_region(window)[1]} "
+        f"w={window_region(window)[2]} h={window_region(window)[3]}",
         flush=True,
     )
 
@@ -448,6 +756,8 @@ def main():
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=14550)
     parser.add_argument("--timeout-s", type=float, default=120.0)
+    parser.add_argument("--attempts", type=int, default=1)
+    parser.add_argument("--restart-delay-s", type=float, default=2.0)
     parser.add_argument("--no-start", action="store_true", help="Do not start the exe; only wait for heartbeat.")
     parser.add_argument("--close-after-ready", action="store_true")
     parser.add_argument("--anchor-dir", default=None, help="Optional PNG anchors for ui-auto mode.")
@@ -456,40 +766,66 @@ def main():
     parser.add_argument("--ready-signal", choices=["heartbeat", "telemetry"], default="telemetry")
     args = parser.parse_args()
 
-    proc = None
-    screenshot_dir = ROOT / "logs" / "ui_screenshots" if args.save_screenshots else None
-    try:
-        if not args.no_start:
-            proc = launch_process(Path(args.exe))
-            print(f"Started FlightSim pid={proc.pid}", flush=True)
+    attempts = max(1, int(args.attempts))
+    base_screenshot_dir = ROOT / "logs" / "ui_screenshots" if args.save_screenshots else None
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        proc = None
+        screenshot_dir = attempt_screenshot_dir(base_screenshot_dir, attempt, attempts)
+        try:
+            if not args.no_start:
+                proc = launch_process(Path(args.exe))
+                print(f"Started FlightSim pid={proc.pid} attempt={attempt}/{attempts}", flush=True)
 
-        if args.mode == "ui-auto":
-            ready = run_ui_auto(
-                args.anchor_dir,
-                screenshot_dir,
-                args.timeout_s,
-                args.host,
-                args.port,
-                args.ready_signal,
-                args.ui_sequence,
-            )
-        else:
-            print("manual-ready mode: put FlightSim into the flyable simulator screen.", flush=True)
-            if args.ready_signal == "heartbeat":
-                ready = wait_heartbeat(args.host, args.port, args.timeout_s)
+            if args.mode == "ui-auto":
+                ready = run_ui_auto(
+                    args.anchor_dir,
+                    screenshot_dir,
+                    args.timeout_s,
+                    args.host,
+                    args.port,
+                    args.ready_signal,
+                    args.ui_sequence,
+                )
             else:
-                ready = wait_telemetry(args.host, args.port, args.timeout_s)
-        if not ready:
+                print(
+                    f"manual-ready mode attempt={attempt}/{attempts}: "
+                    "put FlightSim into the flyable simulator screen.",
+                    flush=True,
+                )
+                if args.ready_signal == "heartbeat":
+                    ready = wait_heartbeat(args.host, args.port, args.timeout_s)
+                else:
+                    ready = wait_telemetry(args.host, args.port, args.timeout_s)
+            if ready:
+                print(f"MAVLink {args.ready_signal} ready.", flush=True)
+                if args.close_after_ready:
+                    terminate_process_tree(proc)
+                return 0
+
             if screenshot_dir:
                 screenshot_dir.mkdir(parents=True, exist_ok=True)
                 save_screenshot(screenshot_dir / "heartbeat_timeout.png")
             raise TimeoutError(f"Timed out waiting for MAVLink {args.ready_signal}.")
-
-        print(f"MAVLink {args.ready_signal} ready.", flush=True)
-        return 0
-    finally:
-        if args.close_after_ready:
+        except Exception as exc:
+            last_error = exc
+            print(f"FlightSim launch attempt {attempt}/{attempts} failed: {exc}", flush=True)
             terminate_process_tree(proc)
+            if attempt < attempts:
+                time.sleep(max(0.0, args.restart_delay_s))
+        finally:
+            if args.close_after_ready:
+                terminate_process_tree(proc)
+
+    raise TimeoutError(f"FlightSim was not ready after {attempts} attempt(s): {last_error}")
+
+
+def attempt_screenshot_dir(base_dir, attempt, attempts):
+    if base_dir is None:
+        return None
+    if attempts <= 1:
+        return base_dir
+    return base_dir / f"attempt_{attempt:02d}_{time.strftime('%Y%m%d_%H%M%S')}"
 
 
 if __name__ == "__main__":

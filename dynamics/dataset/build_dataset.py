@@ -7,11 +7,15 @@ from pathlib import Path
 import numpy as np
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from models.dynamics_math import action_from_row, build_body_state, target_from_rows
+from dynamics.models.flightsim_wrapper import (
+    FlightSimBodyCentricWrapper,
+    collision_count,
+    required_fields_present,
+)
 
 
 def load_jsonl(paths):
@@ -29,23 +33,14 @@ def load_jsonl(paths):
     return rows
 
 
-def required_fields_present(row):
-    return (
-        row.get("action") is not None
-        and row.get("odometry") is not None
-        and row.get("imu") is not None
-        and row.get("attitude") is not None
-        and row["odometry"].get("p_ned") is not None
-        and row["odometry"].get("q_wxyz") is not None
-        and row["odometry"].get("omega") is not None
-        and (
-            row.get("local_position_ned") is not None
-            or row["odometry"].get("v") is not None
-        )
-    )
-
-
-def split_segments(rows):
+def split_segments(
+    rows,
+    *,
+    stuck_position_epsilon_m=1e-4,
+    stuck_min_duration_s=0.5,
+    disable_stuck_position_filter=False,
+    return_stats=False,
+):
     grouped = defaultdict(list)
     for row in rows:
         run_id = row.get("run_id", "unknown_run")
@@ -55,19 +50,40 @@ def split_segments(rows):
         grouped[(run_id, int(reset_counter or 0))].append(row)
 
     segments = []
+    stats = {
+        "collision_filtered_rows": 0,
+        "stuck_position_filtered_rows": 0,
+    }
     for (run_id, reset_counter), segment_rows in grouped.items():
         segment_rows = sorted(segment_rows, key=lambda r: int(r["t_wall_ns"]))
+        before_collision = len(segment_rows)
         segment_rows = drop_collision_suffix(segment_rows)
+        stats["collision_filtered_rows"] += before_collision - len(segment_rows)
+        if not disable_stuck_position_filter:
+            before_stuck = len(segment_rows)
+            segment_rows = drop_stuck_position_suffix(
+                segment_rows,
+                epsilon_m=stuck_position_epsilon_m,
+                min_duration_s=stuck_min_duration_s,
+            )
+            stats["stuck_position_filtered_rows"] += before_stuck - len(segment_rows)
         if len(segment_rows) >= 3:
             segments.append({
                 "run_id": run_id,
                 "reset_counter": reset_counter,
                 "rows": segment_rows,
             })
+    if return_stats:
+        return segments, stats
     return segments
 
 
 def drop_collision_suffix(rows):
+    """Drop only the post-collision suffix inside one reset segment.
+
+    Rows after an automatic simulator reset can still be used because
+    split_segments() groups by (run_id, reset_counter) before this function runs.
+    """
     if not rows:
         return rows
     baseline = collision_count(rows[0])
@@ -79,9 +95,54 @@ def drop_collision_suffix(rows):
     return kept
 
 
-def collision_count(row):
-    collision = row.get("collision") or {}
-    return int(collision.get("count") or 0)
+def drop_stuck_position_suffix(rows, epsilon_m=1e-4, min_duration_s=0.5):
+    """Drop the suffix after sustained unchanged position in one reset segment.
+
+    This catches boundary/contact states where the aircraft keeps receiving
+    controls but its reported position is frozen. Automatic reset data is kept
+    because split_segments() runs this per (run_id, reset_counter) segment.
+    """
+    if len(rows) < 2:
+        return rows
+
+    stationary_start_idx = None
+    stationary_start_s = None
+    prev_pos = position_ned_from_row(rows[0])
+    if prev_pos is None:
+        return rows
+
+    for idx in range(1, len(rows)):
+        pos = position_ned_from_row(rows[idx])
+        if pos is None:
+            stationary_start_idx = None
+            stationary_start_s = None
+            prev_pos = None
+            continue
+
+        if prev_pos is not None and np.linalg.norm(pos - prev_pos) <= epsilon_m:
+            if stationary_start_idx is None:
+                stationary_start_idx = idx - 1
+                stationary_start_s = wall_time_s(rows[stationary_start_idx])
+            if wall_time_s(rows[idx]) - stationary_start_s >= min_duration_s:
+                return rows[:stationary_start_idx + 1]
+        else:
+            stationary_start_idx = None
+            stationary_start_s = None
+
+        prev_pos = pos
+    return rows
+
+
+def position_ned_from_row(row):
+    odom = row.get("odometry") or {}
+    pos = odom.get("p_ned")
+    if pos is None:
+        return None
+    return np.asarray(pos, dtype=np.float64)
+
+
+def wall_time_s(row):
+    return int(row["t_wall_ns"]) / 1e9
 
 
 def resample_segment(rows, dt, max_gap_s):
@@ -111,33 +172,36 @@ def resample_segment(rows, dt, max_gap_s):
     return resampled
 
 
-def build_samples(segments, k, dt, max_rate, use_actuator):
+def build_samples(segments, k, dt, max_rate, use_actuator, use_imu):
     samples = []
     dropped_windows = 0
+    wrapper = FlightSimBodyCentricWrapper(
+        max_rate=max_rate,
+        use_actuator=use_actuator,
+        use_imu=use_imu,
+    )
     for segment_idx, segment in enumerate(segments):
         rows = resample_segment(segment["rows"], dt=dt, max_gap_s=dt * 1.5)
         if len(rows) < k + 2:
             continue
-        states = [build_body_state(row, use_actuator=use_actuator) for row in rows]
-        actions = [action_from_row(row, max_rate=max_rate) for row in rows]
-        targets = [target_from_rows(rows[i], rows[i + 1]) for i in range(len(rows) - 1)]
+        frames = [wrapper.frame_from_log_row(row) for row in rows]
+        targets = [
+            wrapper.target_from_frames(frames[i], frames[i + 1]).y
+            for i in range(len(frames) - 1)
+        ]
         for i in range(k, len(rows) - 1):
-            history_states = states[i - k:i + 1]
-            history_actions = actions[i - k:i + 1]
-            if len(history_states) != k + 1:
+            history_frames = frames[i - k:i + 1]
+            if len(history_frames) != k + 1:
                 dropped_windows += 1
                 continue
-            x = np.concatenate([
-                np.concatenate([s, a]).astype(np.float32)
-                for s, a in zip(history_states, history_actions)
-            ])
+            x = wrapper.model_input_from_history(history_frames)
             y = targets[i]
             samples.append({
                 "x": x,
                 "y": y,
                 "run_id": segment["run_id"],
                 "segment_idx": segment_idx,
-                "time_s": rows[i].get("_resampled_time_s", int(rows[i]["t_wall_ns"]) / 1e9),
+                "time_s": frames[i].t_s,
             })
     return samples, dropped_windows
 
@@ -212,6 +276,10 @@ def main():
     parser.add_argument("--hz", type=float, default=60.0)
     parser.add_argument("--max-rate", type=float, default=1.0)
     parser.add_argument("--no-actuator", action="store_true")
+    parser.add_argument("--no-imu", action="store_true")
+    parser.add_argument("--stuck-position-epsilon-m", type=float, default=1e-4)
+    parser.add_argument("--stuck-min-duration-s", type=float, default=0.5)
+    parser.add_argument("--disable-stuck-position-filter", action="store_true")
     args = parser.parse_args()
 
     input_paths = []
@@ -226,8 +294,15 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     rows = load_jsonl(input_paths)
-    segments = split_segments(rows)
+    segments, filter_stats = split_segments(
+        rows,
+        stuck_position_epsilon_m=args.stuck_position_epsilon_m,
+        stuck_min_duration_s=args.stuck_min_duration_s,
+        disable_stuck_position_filter=args.disable_stuck_position_filter,
+        return_stats=True,
+    )
     use_actuator = not args.no_actuator
+    use_imu = not args.no_imu
     dt = 1.0 / args.hz
     samples, dropped_windows = build_samples(
         segments,
@@ -235,10 +310,11 @@ def main():
         dt=dt,
         max_rate=args.max_rate,
         use_actuator=use_actuator,
+        use_imu=use_imu,
     )
     train, val, test = split_by_run(samples)
 
-    state_dim = 16 if use_actuator else 12
+    state_dim = 9 + (3 if use_imu else 0) + (4 if use_actuator else 0)
     action_dim = 4
     input_dim = (args.k + 1) * (state_dim + action_dim)
     output_dim = 12
@@ -256,6 +332,7 @@ def main():
         "input_dim": input_dim,
         "output_dim": output_dim,
         "use_actuator": use_actuator,
+        "use_imu": use_imu,
         "max_rate": args.max_rate,
     })
     with open(output_dir / "normalization_stats.json", "w", encoding="utf-8") as handle:
@@ -269,6 +346,17 @@ def main():
         "val_samples": len(val),
         "test_samples": len(test),
         "dropped_windows": dropped_windows,
+        "collision_filtered_rows": filter_stats["collision_filtered_rows"],
+        "stuck_position_filtered_rows": filter_stats["stuck_position_filtered_rows"],
+        "collision_filter_policy": (
+            "drop collision row and suffix within each run_id/reset_counter segment; "
+            "post-reset data is kept as a new segment"
+        ),
+        "stuck_position_filter_policy": (
+            "drop suffix within each run_id/reset_counter segment after reported "
+            f"p_ned changes by <= {args.stuck_position_epsilon_m} m for at least "
+            f"{args.stuck_min_duration_s} s; post-reset data is kept as a new segment"
+        ),
     }
     with open(output_dir / "dataset_summary.json", "w", encoding="utf-8") as handle:
         json.dump(summary, handle, indent=2)

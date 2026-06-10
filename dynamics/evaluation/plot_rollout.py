@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
@@ -21,7 +21,8 @@ def main():
     args = parser.parse_args()
 
     import torch
-    from models.mlp_dynamics import build_model
+    from dynamics.models.dynamics_math import rotvec_to_rotmat
+    from dynamics.models.mlp_dynamics import build_model
     if args.device is None:
         args.device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -85,6 +86,8 @@ def rollout_positions(model, stats, x, y, device):
         next_state = history[-1, :state_dim].copy()
         next_state[0:3] = pred[6:9]
         next_state[3:6] = pred[9:12]
+        if state_dim >= 9:
+            next_state[6:9] = rotvec_to_rotmat(pred[3:6]).T @ history[-1, 6:9]
         next_action = x[idx].reshape(k + 1, step_dim)[-1, state_dim:state_dim + action_dim]
         history = np.concatenate([
             history[1:],

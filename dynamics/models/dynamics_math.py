@@ -97,7 +97,7 @@ def skew(v):
     ], dtype=np.float64)
 
 
-def build_body_state(row, use_actuator=True):
+def build_body_state(row, use_actuator=True, use_imu=True):
     odom = row["odometry"]
     imu = row["imu"]
     q = normalize_quat(odom["q_wxyz"])
@@ -106,8 +106,9 @@ def build_body_state(row, use_actuator=True):
     v_body = R_body_to_ned.T @ v_ned
     gravity_body = R_body_to_ned.T @ GRAVITY_NED
     omega_body = np.asarray(odom["omega"], dtype=np.float64)
-    imu_acc = np.asarray(imu["acc"], dtype=np.float64)
-    parts = [v_body, omega_body, gravity_body, imu_acc]
+    parts = [v_body, omega_body, gravity_body]
+    if use_imu:
+        parts.append(np.asarray(imu["acc"], dtype=np.float64))
     if use_actuator:
         actuator = actuator4_from_row(row)
         parts.append(actuator)
