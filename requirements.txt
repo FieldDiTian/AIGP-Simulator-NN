@@ -1,0 +1,20 @@
+# Core FlightSim/MAVLink dependencies
+pymavlink>=2.4.49
+numpy>=2.4
+opencv-python>=4.13
+matplotlib>=3.10
+keyboard>=0.13
+
+# Windows UI automation for dynamics/collection/launch_flightsim.py --mode ui-auto
+pyautogui>=0.9.54
+pydirectinput>=1.0.4
+pywin32>=311
+
+# Install PyTorch separately so CUDA wheels are selected explicitly.
+# Verified local stack:
+#   Python 3.14.5
+#   torch 2.9.0+cu129
+#   CUDA runtime 12.9
+#
+# Example:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu129

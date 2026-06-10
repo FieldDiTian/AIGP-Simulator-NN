@@ -64,6 +64,12 @@ https://www.theaigrandprix.com/previousupdates/
 ------------------------------
 ## FlightSim Dynamics Data Pipeline
 
+Deployment and training quickstart:
+
+```text
+DEPLOYMENT_AND_TRAINING.md
+```
+
 中文说明见：
 
 ```text
