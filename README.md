@@ -70,10 +70,17 @@ Deployment and training quickstart:
 DEPLOYMENT_AND_TRAINING.md
 ```
 
-中文说明见：
+Detailed dynamics data-chain documentation:
 
 ```text
-动力学数据链README.md
+DYNAMICS_DATA_CHAIN_README.md
+```
+
+Competition and simulator notes:
+
+```text
+COMPETITION_ANALYSIS.md
+ENGINE_INFO.md
 ```
 
 This section documents the current black-box dynamics data chain used to train a

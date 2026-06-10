@@ -1,28 +1,28 @@
-﻿# FlightSim 黑盒动力学数据链说明
+# FlightSim Black-Box Dynamics Data Chain
 
-本文档解释当前项目里的动力学数据链：
-
-```text
-采集 FlightSim 黑盒输入输出
--> 构建 body-centric 训练样本
--> 用 CUDA 训练第一版 MLP 动力学替代模型
--> 做 one-step / rollout 冒烟评估
-```
-
-当前第一版模型目标是学习：
+This document explains the dynamics data chain currently used in this project:
 
 ```text
-过去 K 步机体系状态 + 过去 K 步控制输入
--> 下一步机体系运动 target
+Collect FlightSim black-box inputs and outputs
+-> build body-centric training samples
+-> train the first MLP dynamics surrogate with CUDA
+-> run one-step / rollout smoke evaluation
 ```
 
-模型形式：
+The first model is trained to learn:
+
+```text
+past K body-frame states + past K control inputs
+-> next-step body-centric motion target
+```
+
+Model form:
 
 ```text
 f_theta(x_{t-K:t}^B, u_{t-K:t}) -> y_t
 ```
 
-控制输入固定为 MAVLink `SET_ATTITUDE_TARGET` 的四个字段：
+The control input is fixed to the four MAVLink `SET_ATTITUDE_TARGET` fields:
 
 ```python
 u_t = [
@@ -33,48 +33,52 @@ u_t = [
 ]
 ```
 
-不把图像、gate、track、race status、collision 作为模型输入。collision/reset 只用于过滤污染数据。
-过滤规则是 reset-aware 的：碰撞/crash 当行以及其后的数据只在当前
-`run_id/reset_counter` segment 内丢弃；如果 FlightSim 自动 reset，
-`reset_counter` 变化后的数据会作为新的干净 segment 继续采纳。
-同一清洗阶段也会丢弃持续位置不变的后缀，因为这通常表示飞机卡在边界上，
-控制仍在发送但 FlightSim 的位置已经冻结。
+Images, gates, track status, race status, and collision are not model inputs.
+Collision/reset information is recorded only to filter contaminated data.
+The filter is reset-aware: the collision/crash row and the following rows are
+dropped only inside the current `run_id/reset_counter` segment. If FlightSim
+automatically resets and `reset_counter` changes, the post-reset rows are
+treated as a new clean segment and may be used for training. The same cleaning
+stage also drops sustained frozen-position suffixes, because these usually mean
+that the aircraft is stuck on a boundary while controls are still being sent.
 
-## 1. 总体数据流
+## 1. Overall Data Flow
 
 ```text
 FlightSim.exe
-  -> UI 自动进入飞行 HUD
+  -> UI automatically enters the flight HUD
   -> MAVLink heartbeat / telemetry ready
-  -> collect_identification_data.py 产生控制 profile
-  -> controller.py 发送 SET_ATTITUDE_TARGET
-  -> mavlink_rx.py 接收 FlightSim telemetry
-  -> logger.py 写 raw jsonl
-  -> validate_dynamics_log.py 检查飞机是否真的运动
-  -> flightsim_wrapper.py 打包成统一 body-centric 表示
-  -> build_dataset.py 转成训练 dataset
-  -> train_mlp_dynamics.py 用 CUDA 训练 MLP
-  -> eval_one_step.py / eval_rollout.py / analyze_coverage.py 评估和查欠覆盖
+  -> collect_identification_data.py generates a control profile
+  -> controller.py sends SET_ATTITUDE_TARGET
+  -> mavlink_rx.py receives FlightSim telemetry
+  -> logger.py writes raw jsonl
+  -> validate_dynamics_log.py checks whether the aircraft really moved
+  -> flightsim_wrapper.py packs rows into a unified body-centric representation
+  -> build_dataset.py converts rows into a training dataset
+  -> train_mlp_dynamics.py trains an MLP with CUDA
+  -> eval_one_step.py / eval_rollout.py / analyze_coverage.py evaluate and find undercovered regions
 ```
 
-重点：`telemetry ready` 不等于已经进入仿真。现在 launcher 会同时检查：
+Important: `telemetry ready` does not mean the simulator is already in the
+flyable state. The launcher now checks both:
 
 ```text
-1. 已经进入飞行 HUD
-2. 收到 FlightSim telemetry
+1. the flight HUD is visible
+2. FlightSim telemetry is being received
 ```
 
-飞行 HUD 判据包含右上角 `FLIGHT MODE ACRO` 和底部速度 HUD。
+The flight HUD check looks for the in-race screen, including `FLIGHT MODE ACRO`
+and the speed HUD.
 
-## 2. 采集到什么数据
+## 2. What Is Collected
 
-raw 日志是 jsonl 格式：
+Raw logs are jsonl files:
 
 ```text
 logs/raw/*.jsonl
 ```
 
-每一行是一帧控制周期附近的数据，核心字段如下：
+Each row is a sample near one control cycle. The core fields are:
 
 ```python
 {
@@ -133,24 +137,24 @@ logs/raw/*.jsonl
 }
 ```
 
-其中：
+In this log:
 
 ```text
-action 是黑盒输入
-telemetry 是黑盒输出/状态观测
+action is the black-box input
+telemetry is the black-box output / observed state
 ```
 
-所以 raw 日志记录的是：
+So each raw log records:
 
 ```text
-实际发给 FlightSim 的控制 u_t
+the actual control u_t sent to FlightSim
 +
-FlightSim 返回的状态 x_t
+the state x_t returned by FlightSim
 ```
 
-## 3. 目录位置
+## 3. Directory Layout
 
-动力学相关代码现在集中在专门目录：
+Dynamics-specific code is grouped under:
 
 ```text
 dynamics/
@@ -174,21 +178,22 @@ dynamics/
     neural_sim.py
 ```
 
-根目录只保留项目入口文档、原始比赛模板、日志、数据集和 checkpoint。
+The repository root keeps project entry documents, the original competition
+template, logs, datasets, and checkpoints.
 
-原始日志：
+Raw logs:
 
 ```text
 logs/raw/
 ```
 
-被判定无效或不应训练的数据：
+Invalid or rejected logs:
 
 ```text
 logs/rejected/
 ```
 
-处理后的训练集：
+Processed datasets:
 
 ```text
 logs/processed/<dataset_name>/
@@ -199,7 +204,7 @@ logs/processed/<dataset_name>/
   dataset_summary.json
 ```
 
-模型 checkpoint：
+Model checkpoints:
 
 ```text
 checkpoints/<run_name>/
@@ -208,19 +213,19 @@ checkpoints/<run_name>/
   training_curve.csv
 ```
 
-当前已经跑通的 CUDA 冒烟数据集：
+Current CUDA smoke-test dataset:
 
 ```text
 logs/processed/smoke_4profiles_cuda/
 ```
 
-当前 CUDA 冒烟 checkpoint：
+Current CUDA smoke-test checkpoint:
 
 ```text
 checkpoints/smoke_4profiles_cuda/best_val_model.pt
 ```
 
-当前四组有效冒烟 raw 日志：
+The four valid smoke-test raw logs are:
 
 ```text
 logs/raw/smoke_forward_flight_20260604_225556.jsonl
@@ -229,15 +234,16 @@ logs/raw/smoke_right_turn_20260604_233044.jsonl
 logs/raw/smoke_climb_descend_20260604_233227.jsonl
 ```
 
-一份曾经没进入仿真、飞机没动的日志已经移走：
+A previous log where the simulator was not in flight and the aircraft did not
+move has been moved to:
 
 ```text
 logs/rejected/smoke_forward_flight_20260604_223202.not_in_flight.jsonl
 ```
 
-## 4. 如何启动 FlightSim 并进入仿真
+## 4. Starting FlightSim and Entering the Simulation
 
-自动 UI 模式：
+Automatic UI mode:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\collection\launch_flightsim.py `
@@ -249,24 +255,24 @@ logs/rejected/smoke_forward_flight_20260604_223202.not_in_flight.jsonl
   --save-screenshots
 ```
 
-自动点击顺序：
+Automatic click sequence:
 
 ```text
 PRESS ANY BUTTON -> SUBMIT -> AVAILABLE -> RACE
 ```
 
-现在 `ui-auto` 使用：
+`ui-auto` currently uses:
 
 ```text
-pywin32 前台化窗口
-Win32 SendInput / pydirectinput / pyautogui 多路发送游戏输入
-pyautogui 截图检测 HUD
+pywin32 to foreground the simulator window
+Win32 SendInput / pydirectinput / pyautogui to send game input
+pyautogui screenshots to detect the HUD
 ```
 
-如果一次 UI 进入超时，`--attempts` 会让脚本关闭 FlightSim、等待
-`--restart-delay-s`，重新启动 `.exe` 并再次执行 UI 序列。
+If one UI attempt times out, `--attempts` makes the launcher close FlightSim,
+wait `--restart-delay-s`, restart the `.exe`, and run the UI sequence again.
 
-如果 UI 自动化不稳定，可以手动进入飞行 HUD 后运行：
+If UI automation is unstable on a machine, manually enter the flight HUD and run:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\collection\launch_flightsim.py `
@@ -277,15 +283,15 @@ pyautogui 截图检测 HUD
   --restart-delay-s 2
 ```
 
-## 5. 如何采集数据
+## 5. Data Collection
 
-采集脚本：
+Collection script:
 
 ```text
 dynamics/collection/collect_identification_data.py
 ```
 
-当前支持的 profile：
+Supported profiles:
 
 ```text
 hover_perturb
@@ -318,30 +324,31 @@ error_yaw_thrust_grid
 error_vertical_velocity_mix
 ```
 
-定向补覆盖 profile 对应：
+Targeted coverage-fill profiles correspond to:
 
 ```text
-大 roll / 大 pitch 姿态下的控制响应
-roll + pitch + yaw + thrust 同时变化的组合
-高速前飞时的 yaw / roll 修正
-低速 / 悬停附近的姿态扰动
-带遥测速度反馈制动的低速姿态扰动
-接近边界但未碰撞前的正常动力学
-上升 / 下降同时转弯
-高角速度下的 thrust 响应
+large roll / large pitch attitude response
+combined roll + pitch + yaw + thrust commands
+yaw / roll correction during high-speed forward flight
+low-speed / hover attitude perturbations
+low-speed perturbations with telemetry-based braking
+normal dynamics near a boundary before collision
+climb / descent while turning
+thrust response at high angular rate
 ```
 
-`error_*` 是第二轮按覆盖/误差报告补采的 profile，不是普通动作重复采样：
+`error_*` profiles are second-pass coverage profiles derived from coverage/error
+reports, not ordinary repeated action profiles:
 
 ```text
-error_attitude_corner_response: gravity_body 角落 bin，也就是大 roll/pitch 姿态区
-error_pitch_brake_velocity: 高速 v_body_x 和 pitch-rate 组合误差区
-error_roll_angle_reversal: 极端 roll angle 下 roll-rate 反向控制区
-error_yaw_thrust_grid: 极端 yaw-rate 和 thrust 组合区
-error_vertical_velocity_mix: 垂直速度与 pitch/thrust 混合区
+error_attitude_corner_response: gravity_body corner bins, i.e. large roll/pitch attitudes
+error_pitch_brake_velocity: high v_body_x and pitch-rate error regions
+error_roll_angle_reversal: reverse roll-rate commands at extreme roll angles
+error_yaw_thrust_grid: extreme yaw-rate and thrust combinations
+error_vertical_velocity_mix: vertical velocity mixed with pitch/thrust
 ```
 
-每个 raw jsonl 的 metadata 行都会写入：
+Each raw jsonl metadata row includes:
 
 ```text
 profile
@@ -349,9 +356,10 @@ profile_category
 coverage_goal
 ```
 
-后续清洗、重建 dataset、继续补采时，不要只按文件名猜用途；优先用这些字段或 catalog 里的分类清单。
+Use these fields or the catalog manifests for later cleaning and top-up
+collection. Do not infer a run's purpose only from its filename.
 
-采集一组前飞数据：
+Collect one forward-flight run:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\collection\collect_identification_data.py `
@@ -363,16 +371,17 @@ coverage_goal
   --run-id smoke_forward_flight_test
 ```
 
-采集脚本默认会在正式写入 raw jsonl 前做一次飞机响应探测：发送一小段
-rate/thrust 控制，并要求位置或速度发生可测变化。如果只是进了菜单、只有
-heartbeat/telemetry、或者飞机没有接受 `SET_ATTITUDE_TARGET`，采集会直接失败，
-不会写训练样本。
+Before normal samples are written to raw jsonl, the collector runs a short
+flight-response probe. It sends a small rate/thrust command and requires
+measurable position or velocity change. If the simulator is still in a menu, if
+only heartbeat/telemetry exists, or if FlightSim is not accepting
+`SET_ATTITUDE_TARGET`, collection fails before writing training samples.
 
-对于 `low_speed_hover_attitude_perturb` 这种专门补低速/悬停附近的数据，
-在确认 UI 自动进入 HUD 已经稳定后，可以加 `--skip-flight-response-probe`。
-这样正式日志不会先被响应探针赋予一段初速度。
+For the special `low_speed_hover_attitude_perturb` profile, once UI automation
+is known to be stable, `--skip-flight-response-probe` can be used so the probe
+does not give the aircraft initial speed before the official log starts.
 
-采集后必须验证飞机真的动了：
+Validate motion after collection:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\collection\validate_dynamics_log.py `
@@ -380,7 +389,7 @@ heartbeat/telemetry、或者飞机没有接受 `SET_ATTITUDE_TARGET`，采集会
   --json
 ```
 
-如果返回：
+If the result contains:
 
 ```json
 {
@@ -388,11 +397,11 @@ heartbeat/telemetry、或者飞机没有接受 `SET_ATTITUDE_TARGET`，采集会
 }
 ```
 
-则不要把这份日志加入训练。
+do not add that log to training.
 
-## 5.0 raw 日志分类目录
+### 5.0 Raw Log Catalog
 
-生成 raw log 分类目录：
+Generate a raw-log catalog:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\dataset\catalog_raw_logs.py `
@@ -400,7 +409,7 @@ heartbeat/telemetry、或者飞机没有接受 `SET_ATTITUDE_TARGET`，采集会
   --catalog-name all_runs_current
 ```
 
-输出目录：
+Output:
 
 ```text
 logs/catalog/<catalog_name>/
@@ -410,7 +419,8 @@ logs/catalog/<catalog_name>/
   profiles/<profile>.json
 ```
 
-这个 catalog 只保存路径和 metadata，不复制 raw jsonl。后续可以直接按：
+The catalog stores paths and metadata only; it does not copy raw jsonl files.
+Use it to filter data by:
 
 ```text
 baseline_*
@@ -420,33 +430,34 @@ single_axis_*
 low_speed
 ```
 
-筛选数据，便于清洗和补充。
+### 5.1 One-Command Automation Pipeline
 
-## 5.1 一键自动化管线
-
-现在有一个总控脚本：
+The orchestrator is:
 
 ```text
 dynamics/pipeline/run_dynamics_pipeline.py
 ```
 
-它串起来的是：
+It connects the following chain:
 
 ```text
 FlightSim UI ready
 -> collect profiles
--> validate_dynamics_log.py 检查飞机是否真的动
--> 无效日志移入 logs/rejected
--> build_dataset.py 构建 dataset
--> train_mlp_dynamics.py 用 CUDA 训练
--> eval_one_step.py 直接从 raw log 走 wrapper 对比
--> eval_rollout.py 直接从 raw log 走 wrapper 闭环对比
--> analyze_coverage.py 统计覆盖和模型误差
+-> validate_dynamics_log.py checks whether the aircraft actually moved
+-> invalid logs are moved to logs/rejected
+-> build_dataset.py builds the dataset
+-> train_mlp_dynamics.py trains with CUDA
+-> eval_one_step.py compares raw logs through the wrapper
+-> eval_rollout.py compares closed-loop rollout through the wrapper
+-> analyze_coverage.py reports coverage and model error
 ```
 
-注意：采集阶段仍然只写 raw MAVLink jsonl，不在采集时调用 wrapper。这是故意的，因为 raw log 是原始真值，后续可以反复重处理。wrapper 从 dataset/evaluation/coverage 阶段自动使用。
+Collection still writes only raw MAVLink jsonl. The wrapper is intentionally
+not used during collection because raw logs are the original ground truth and
+can be reprocessed later. The wrapper is used automatically from the
+dataset/evaluation/coverage stages onward.
 
-先 dry-run 看命令链：
+Dry-run the command chain:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\pipeline\run_dynamics_pipeline.py `
@@ -457,7 +468,7 @@ FlightSim UI ready
   --dry-run
 ```
 
-跑一次 UI-auto 烟测管线：
+Run a UI-auto smoke pipeline:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\pipeline\run_dynamics_pipeline.py `
@@ -479,15 +490,17 @@ FlightSim UI ready
   --save-ui-screenshots
 ```
 
-正式做多 profile 覆盖采集时，建议加：
+For formal multi-profile coverage collection, use:
 
 ```text
 --relaunch-per-profile
 ```
 
-这样每个 profile 都会独立启动 FlightSim、进入飞行 HUD、采集、validate，然后关闭仿真，避免上一段飞行状态或碰撞污染下一段。
+Then each profile launches FlightSim, enters the flight HUD, collects,
+validates, and closes the simulator independently, avoiding contamination from
+the previous run's state or collision.
 
-如果 FlightSim 已经手动进入飞行 HUD，可以跳过启动/UI：
+If FlightSim is already manually in the flight HUD, skip launch/UI:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\pipeline\run_dynamics_pipeline.py `
@@ -498,22 +511,22 @@ FlightSim UI ready
   --device cuda
 ```
 
-## 6. 如何构建训练数据集
+## 6. Building the Training Dataset
 
-dataset builder：
+Dataset builder:
 
 ```text
 dynamics/dataset/build_dataset.py
 dynamics/models/flightsim_wrapper.py
 ```
 
-现在坐标变换和训练 target 的标准定义不直接散落在 dataset/eval 脚本里，而是集中在：
+The standard coordinate conversion and target definition live in:
 
 ```python
 FlightSimBodyCentricWrapper
 ```
 
-它负责把 raw FlightSim log 包装成：
+It packs raw FlightSim logs into:
 
 ```text
 BodyCentricFrame:
@@ -528,43 +541,43 @@ BodyCentricTarget:
   y = [delta_p_body, delta_rotvec_body, v_body_next, omega_body_next]
 ```
 
-这样做的目的：
+The purpose is:
 
 ```text
-raw MAVLink log 作为原始真值保留
-训练 dataset 由 wrapper 生成
-one-step 评估用 wrapper target 对比 MLP 输出
-coverage 分析也用同一套 body-centric 定义
-以后改状态定义，只需要先改 wrapper
+keep raw MAVLink logs as original truth
+generate training datasets from the wrapper
+compare MLP predictions against wrapper targets in one-step evaluation
+use the same body-centric definition for coverage analysis
+change state definitions in one place by editing the wrapper
 ```
 
-它把 raw jsonl 转成：
+The wrapper converts raw jsonl into:
 
 ```text
 (x_{t-K:t}^B, u_{t-K:t}) -> y_t
 ```
 
-处理步骤：
+Dataset processing steps:
 
 ```text
-1. 读取 raw jsonl
-2. 删除缺 action / telemetry 的行
-3. 按 run_id 和 reset_counter 切 segment
-4. 在每个 reset segment 内，从 collision 当行开始丢弃后缀
-5. 在每个 reset segment 内，丢弃持续位置不变的卡边界后缀
-6. reset 后的新 segment 继续保留并可用于训练
-7. 重采样到固定频率，默认 60 Hz
-8. 调用 FlightSimBodyCentricWrapper
-9. 归一化 quaternion
-10. NED velocity 转 body velocity
-11. 计算 gravity_body
-12. 计算 delta_p_body
-13. 计算 delta_rotvec_body
-14. 构造 K=10 history window
-15. 保存 train/val/test 和 mean/std
+1. read raw jsonl
+2. remove rows missing action / telemetry
+3. split by run_id and reset_counter
+4. inside each reset segment, drop the suffix starting at the collision row
+5. inside each reset segment, drop sustained frozen-position boundary-stuck suffixes
+6. keep new post-reset segments for training
+7. resample to a fixed frequency, default 60 Hz
+8. call FlightSimBodyCentricWrapper
+9. normalize quaternions
+10. convert NED velocity to body velocity
+11. compute gravity_body
+12. compute delta_p_body
+13. compute delta_rotvec_body
+14. build K=10 history windows
+15. save train/val/test and mean/std statistics
 ```
 
-构建当前四组冒烟数据集：
+Build the current four-profile smoke dataset:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\dataset\build_dataset.py `
@@ -577,24 +590,25 @@ coverage 分析也用同一套 body-centric 定义
   --k 10
 ```
 
-常用参数：
+Common options:
 
 ```text
---input        输入 raw jsonl，可传多个
---output-dir   输出 dataset 目录
---k            history 长度，默认 10
---hz           重采样频率，默认 60
---max-rate     rate command 归一化尺度
---no-actuator  不使用 actuator_output，状态从 16 维变 12 维
---stuck-position-epsilon-m  判定位置冻结的位移阈值，默认 1e-4 m
---stuck-min-duration-s      位置持续冻结多久后丢弃后缀，默认 0.5 s
+--input        input raw jsonl files; accepts multiple paths
+--output-dir   output dataset directory
+--k            history length, default 10
+--hz           resampling frequency, default 60
+--max-rate     rate-command normalization scale
+--no-actuator  do not use actuator_output; state changes from 16D to 12D
+--stuck-position-epsilon-m  displacement threshold for frozen-position detection, default 1e-4 m
+--stuck-min-duration-s      duration before dropping a frozen-position suffix, default 0.5 s
 ```
 
-如果改了 `--k` 或 `--no-actuator`，必须重新 build dataset，因为 MLP 输入维度会变。
+If `--k` or `--no-actuator` changes, rebuild the dataset because the MLP input
+dimension changes.
 
-## 7. 训练输入是什么
+## 7. Training Input
 
-每个时间步的状态默认是 16 维：
+Default per-step state is 16-dimensional:
 
 ```python
 x_t = [
@@ -606,7 +620,7 @@ x_t = [
 ]
 ```
 
-控制输入是 4 维：
+Control input is 4-dimensional:
 
 ```python
 u_t = [
@@ -617,13 +631,13 @@ u_t = [
 ]
 ```
 
-当 `K=10` 时，一个训练样本输入是 11 个时间步拼接：
+With `K=10`, one training sample contains 11 time steps:
 
 ```text
 [x_{t-10}, u_{t-10}, ..., x_t, u_t]
 ```
 
-如果使用 actuator：
+With actuator:
 
 ```text
 state_dim = 16
@@ -631,7 +645,7 @@ action_dim = 4
 input_dim = 11 * (16 + 4) = 220
 ```
 
-如果不用 actuator：
+Without actuator:
 
 ```text
 state_dim = 12
@@ -639,9 +653,9 @@ action_dim = 4
 input_dim = 11 * (12 + 4) = 176
 ```
 
-## 8. 训练输出是什么
+## 8. Training Output
 
-模型输出 12 维 target：
+The model predicts a 12-dimensional target:
 
 ```python
 y_t = [
@@ -663,30 +677,31 @@ y_t = [
 ]
 ```
 
-也就是说，模型不直接预测绝对 NED 位置和绝对四元数，而是预测：
+In other words, the model does not directly predict absolute NED position or
+absolute quaternion. It predicts:
 
 ```text
-body 坐标系里的相对位移
-body 坐标系里的相对旋转
-下一步 body velocity
-下一步 body angular velocity
+relative displacement in body coordinates
+relative rotation in body coordinates
+next body velocity
+next body angular velocity
 ```
 
-## 9. 如何启动 CUDA 训练
+## 9. Starting CUDA Training
 
-训练脚本：
+Training script:
 
 ```text
 dynamics/training/train_mlp_dynamics.py
 ```
 
-模型定义：
+Model definition:
 
 ```text
 dynamics/models/mlp_dynamics.py
 ```
 
-CUDA 冒烟训练命令：
+CUDA smoke training:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\training\train_mlp_dynamics.py `
@@ -701,7 +716,7 @@ CUDA 冒烟训练命令：
   --device cuda
 ```
 
-正式一点的第一版训练可以用：
+Larger first-pass training:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\training\train_mlp_dynamics.py `
@@ -718,24 +733,24 @@ CUDA 冒烟训练命令：
   --device cuda
 ```
 
-## 10. 如何更改 MLP 超参数
+## 10. Changing MLP Hyperparameters
 
-你说的 `NLP` 这里应理解为 `MLP` 动力学网络。
+If someone says `NLP` here, read it as the `MLP` dynamics network.
 
-训练超参数通过命令行改：
+Training hyperparameters are command-line options:
 
 ```text
 --hidden-dim      MLP hidden width
---num-layers      MLP 层数
+--num-layers      number of MLP layers
 --batch-size      batch size
---epochs          最大训练 epoch
+--epochs          maximum number of epochs
 --lr              learning rate
 --weight-decay    AdamW weight decay
 --patience        early stopping patience
---device          cuda 或 cpu
+--device          cuda or cpu
 ```
 
-示例：改成 3 层、hidden 256、训练 20 epoch：
+Example: 3 layers, hidden size 256, 20 epochs:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\training\train_mlp_dynamics.py `
@@ -752,7 +767,7 @@ CUDA 冒烟训练命令：
   --device cuda
 ```
 
-dataset 相关超参数通过 `build_dataset.py` 改：
+Dataset-related hyperparameters are changed in `build_dataset.py`:
 
 ```text
 --k
@@ -761,11 +776,12 @@ dataset 相关超参数通过 `build_dataset.py` 改：
 --no-actuator
 ```
 
-这类参数会改变训练样本本身，所以要先重新 build dataset，再重新 train。
+These change the training samples themselves, so rebuild the dataset before
+training.
 
-## 11. 如何评估
+## 11. Evaluation
 
-one-step 评估：
+One-step evaluation:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\evaluation\eval_one_step.py `
@@ -774,7 +790,7 @@ one-step 评估：
   --device cuda
 ```
 
-也可以直接从 raw jsonl 走 wrapper 生成 `x/y` 后对比 MLP：
+Raw-jsonl one-step evaluation through the wrapper:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\evaluation\eval_one_step.py `
@@ -787,7 +803,7 @@ one-step 评估：
   --device cuda
 ```
 
-这条路径对应：
+That path is:
 
 ```text
 raw FlightSim log
@@ -798,7 +814,7 @@ raw FlightSim log
 -> error = y_hat - y_sim
 ```
 
-rollout 评估：
+Rollout evaluation:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\evaluation\eval_rollout.py `
@@ -807,7 +823,8 @@ rollout 评估：
   --device cuda
 ```
 
-也可以直接从 raw jsonl 走 wrapper + `NeuralDroneDynamics` 做闭环 rollout：
+Raw-log closed-loop rollout through `FlightSimBodyCentricWrapper` and
+`NeuralDroneDynamics`:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\evaluation\eval_rollout.py `
@@ -821,17 +838,17 @@ rollout 评估：
   --device cuda
 ```
 
-这条路径对应：
+That path is:
 
 ```text
 raw FlightSim log
--> wrapper 得到真实 body-centric history 和真实 action sequence
--> NeuralDroneDynamics 从真实初始状态 reset
--> MLP 闭环 step(action)
--> 和 FlightSim reference 轨迹比较位置、速度、姿态、角速度误差
+-> wrapper gets true body-centric history and true action sequence
+-> NeuralDroneDynamics resets from the true initial state
+-> MLP closed-loop step(action)
+-> compare against the FlightSim reference trajectory in position, velocity, attitude, and angular velocity
 ```
 
-画 rollout：
+Plot rollout:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\evaluation\plot_rollout.py `
@@ -839,7 +856,7 @@ raw FlightSim log
   --output <plot_path.png>
 ```
 
-覆盖度和模型误差分析：
+Coverage and model-error analysis:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\evaluation\analyze_coverage.py `
@@ -855,14 +872,15 @@ raw FlightSim log
   --min-samples-per-bin 20
 ```
 
-输出位置：
+Output:
 
 ```text
 logs/coverage/<name>/coverage_report.json
 logs/coverage/<name>/undercovered_bins.json
 ```
 
-第一版不在完整高维空间里硬分箱，而是看这些低维视图：
+The first version does not bin the full high-dimensional joint space. It uses
+low-dimensional views:
 
 ```text
 gravity_body_x vs gravity_body_y
@@ -875,7 +893,7 @@ roll angle vs roll_rate_cmd
 pitch angle vs thrust_cmd
 ```
 
-每个 bin 统计：
+Each bin records:
 
 ```text
 sample_count
@@ -886,18 +904,19 @@ target_std
 model_error_mean
 ```
 
-欠覆盖不只看样本数，也看模型误差：
+Undercoverage is not only low sample count; high model error also matters:
 
 ```text
 valid_sample_count < min_samples_per_bin
-或者该 bin 的 model_error_mean 明显偏高
+or model_error_mean is clearly high
 ```
 
-如果不传 `--checkpoint`，脚本只做数据覆盖分析；传入 checkpoint 后，会额外把 MLP one-step error 映射到同一套 bin 上。
+Without `--checkpoint`, the script only analyzes data coverage. With a
+checkpoint, it also maps one-step MLP error onto the same bins.
 
-## 12. 当前冒烟测试结果
+## 12. Current Smoke-Test Results
 
-四组有效采集：
+Four valid collections:
 
 ```text
 forward_flight: 457 complete rows, displacement 30.175 m, max speed 34.101 m/s
@@ -906,7 +925,7 @@ right_turn:     459 complete rows, displacement 163.265 m, max speed 28.526 m/s
 climb_descend:  458 complete rows, displacement 168.602 m, max speed 28.811 m/s
 ```
 
-dataset summary：
+Dataset summary:
 
 ```json
 {
@@ -920,14 +939,14 @@ dataset summary：
 }
 ```
 
-CUDA 冒烟训练：
+CUDA smoke training:
 
 ```text
 epoch=001 train_loss=0.806750 val_loss=0.535139
 epoch=002 train_loss=0.446449 val_loss=0.343431
 ```
 
-one-step 冒烟评估：
+One-step smoke evaluation:
 
 ```json
 {
@@ -939,17 +958,19 @@ one-step 冒烟评估：
 }
 ```
 
-注意：这些结果只说明链路跑通，不说明模型已经好用。正式训练需要更长数据、更多姿态/速度/角速度覆盖，并且 train/val/test 要按 run 划分。
+These results only prove that the pipeline runs. They do not prove that the
+model is good. Real training needs longer runs, broader attitude/velocity/
+angular-rate coverage, and train/val/test split by run.
 
-## 13. 当前高误差补采结果
+## 13. Current High-Error Fill Results
 
-本轮补采 run 前缀：
+Top-up run prefix:
 
 ```text
 high_error_fill_20260605_154651
 ```
 
-新增 5 类 raw 日志：
+Five new raw-log groups:
 
 ```text
 high_error_attitude
@@ -959,19 +980,19 @@ high_error_yaw_thrust
 high_error_vertical_velocity
 ```
 
-分类 catalog：
+Categorized catalog:
 
 ```text
 logs/catalog/all_with_high_error_fill_20260605_154651/
 ```
 
-全量重建后的 dataset：
+Full rebuilt dataset:
 
 ```text
 logs/processed/full_plus_higherror_stuckclean_20260605_154651/
 ```
 
-dataset summary：
+Dataset summary:
 
 ```json
 {
@@ -986,13 +1007,13 @@ dataset summary：
 }
 ```
 
-CUDA baseline checkpoint：
+CUDA baseline checkpoint:
 
 ```text
 checkpoints/full_plus_higherror_baseline30_20260605_154651/best_val_model.pt
 ```
 
-one-step test：
+One-step test:
 
 ```json
 {
@@ -1003,7 +1024,8 @@ one-step test：
 }
 ```
 
-这个结果说明 one-step 位置增量误差刚压到 0.1 m 以下，但 rollout 仍然不可靠：
+This means one-step position-delta error is just below 0.1 m, but rollout is
+still unreliable:
 
 ```text
 1s rollout position RMSE: 9.59 m
@@ -1011,33 +1033,37 @@ one-step test：
 5s rollout position RMSE: 108.73 m
 ```
 
-所以后续目标不是只继续堆普通飞行时长，而是优先处理：
+Therefore the next priority is not simply more ordinary flight time. Focus on:
 
 ```text
-高速 + 大垂直速度
-极端 roll 姿态 + 反向 roll-rate 命令
-极端 yaw-rate + 低/高 thrust
-大 pitch 姿态 + thrust 边界
+high speed + large vertical velocity
+extreme roll attitude + opposite roll-rate commands
+extreme yaw-rate + low/high thrust
+large pitch attitude + thrust limits
 ```
 
-这些区域可以通过 coverage 报告查看：
+Inspect these regions through:
 
 ```text
 logs/coverage/full_plus_higherror_stuckclean_20260605_154651_with_baseline30_model/
 ```
 
-## 14. Rollout 调优结果
+## 14. Rollout Tuning Results
 
-第一轮 rollout 差的主要原因不是单纯数据少，而是模型输入包含了 rollout 时无法自我更新的外生量：
+The first rollout failure was not simply caused by insufficient data. The model
+input included exogenous quantities that it cannot update during rollout:
 
 ```text
 imu_acc
 actuator_output
 ```
 
-one-step 训练时这些来自真实日志，所以指标会好看；rollout 时模型只能沿用旧值，历史输入会越来越假。
+In one-step training these values come from real logs, so the metrics look good.
+During rollout, however, the model can only reuse stale values, making the
+history increasingly false.
 
-当前推荐的闭环自洽 dataset 去掉了这两个外生量，只保留：
+The current recommended closed-loop dataset removes those exogenous quantities
+and keeps only:
 
 ```text
 x_body = [
@@ -1047,7 +1073,7 @@ x_body = [
 ]
 ```
 
-构建命令：
+Build command:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\dataset\build_dataset.py `
@@ -1060,7 +1086,8 @@ x_body = [
   --no-imu
 ```
 
-训练时增加 multi-step rollout loss，让模型用自己的预测状态继续滚动 10 步：
+Training adds multi-step rollout loss so the model rolls forward 10 steps using
+its own predicted state:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\training\train_mlp_dynamics.py `
@@ -1078,13 +1105,13 @@ x_body = [
   --rollout-batch-size 512
 ```
 
-当前推荐 checkpoint：
+Current recommended checkpoint:
 
 ```text
 checkpoints/full_plus_higherror_closedloop9_rolloutloss10_20260609/best_val_model.pt
 ```
 
-one-step test：
+One-step test:
 
 ```json
 {
@@ -1095,7 +1122,7 @@ one-step test：
 }
 ```
 
-用 raw logs 做正式 rollout，并用较大 stride 跨 run 采样：
+Formal raw-log rollout, sampled across runs with a large stride:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\evaluation\eval_rollout.py `
@@ -1108,38 +1135,39 @@ one-step test：
   --device cuda
 ```
 
-同一口径下，旧 16 维模型 vs 新 closed-loop9 + rollout loss：
+Same evaluation protocol, old 16D model vs new closed-loop9 + rollout loss:
 
 ```text
 old 1s/3s/5s position RMSE: 4.62 / 30.07 / 57.29 m
 new 1s/3s/5s position RMSE: 2.16 / 14.09 / 26.95 m
 ```
 
-这说明 rollout 已经明显改善，但仍未达到可替代 FlightSim 的水平。下一步重点应是：
+Rollout improved substantially, but it is still not good enough to replace
+FlightSim. Next steps:
 
 ```text
-按 rollout 高误差片段反查 profile
-补低速/中速稳定段，而不是只补高速极端段
-尝试 GRU/LSTM 或显式延迟状态
-用更长 multi-step loss，但需要小权重，30 步强权重已经出现过拟合/退化
+trace high-rollout-error windows back to their profiles
+add low-speed and mid-speed stable segments instead of only high-speed extremes
+try GRU/LSTM or explicit delay state
+use longer multi-step loss carefully with small weight; strong 30-step loss already showed overfitting/regression
 ```
 
-## 15. GRU 配置
+## 15. GRU Configuration
 
-GRU 支持已经配置在：
+GRU support is configured in:
 
 ```text
 dynamics/models/mlp_dynamics.py
 configs/train_gru.yaml
 ```
 
-GRU 和 MLP 使用同一个 closed-loop9 dataset：
+GRU and MLP use the same closed-loop9 dataset:
 
 ```text
 logs/processed/full_plus_higherror_closedloop9_20260609/
 ```
 
-训练命令：
+Training command:
 
 ```powershell
 .\.venv\Scripts\python.exe dynamics\training\train_mlp_dynamics.py `
@@ -1161,20 +1189,21 @@ logs/processed/full_plus_higherror_closedloop9_20260609/
   --rollout-batch-size 512
 ```
 
-当前 GRU checkpoint：
+Current GRU checkpoint:
 
 ```text
 checkpoints/full_plus_higherror_closedloop9_gru_rollout10_20260609/best_val_model.pt
 ```
 
-实测结果：
+Measured result:
 
 ```text
 one-step delta_p RMSE: 0.09880 m
 raw rollout 1s/3s/5s position RMSE: 3.25 / 19.65 / 37.43 m
 ```
 
-结论：GRU 已经可复现训练和评估，但当前没有超过 closed-loop9 MLP + 10-step rollout loss。因此当前最佳仍然是：
+Conclusion: GRU training and evaluation are reproducible, but the current GRU
+does not beat closed-loop9 MLP + 10-step rollout loss. The current best remains:
 
 ```text
 checkpoints/full_plus_higherror_closedloop9_rolloutloss10_20260609/best_val_model.pt
