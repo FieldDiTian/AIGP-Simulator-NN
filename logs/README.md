@@ -17,5 +17,17 @@ logs/ui_probe/        UI probing artifacts
 logs/ui_screenshots/  launcher failure/ready screenshots
 ```
 
-For sharing real training data, use an artifact store, release asset, Git LFS,
-or a separate data sync location instead of normal Git commits.
+For sharing selected real training data, use Git LFS. This repository tracks
+these large artifact patterns through `.gitattributes`:
+
+```text
+logs/raw/*.jsonl
+logs/raw/**/*.jsonl
+logs/processed/**/*.npz
+checkpoints/**/*.pt
+checkpoints/**/*.pth
+checkpoints/**/*.ckpt
+```
+
+Because generated data is ignored by default, intentionally add selected files
+with `git add -f ...`, then confirm with `git lfs status` before committing.

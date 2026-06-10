@@ -40,6 +40,85 @@ Use the project virtual environment:
 .\.venv\Scripts\python.exe --version
 ```
 
+## Git LFS Deployment for Training Data
+
+This repository is configured to use Git LFS for large training artifacts.
+The tracked LFS patterns are stored in `.gitattributes`:
+
+```text
+logs/raw/*.jsonl
+logs/raw/**/*.jsonl
+logs/processed/**/*.npz
+checkpoints/**/*.pt
+checkpoints/**/*.pth
+checkpoints/**/*.ckpt
+```
+
+Install and initialize Git LFS once on each machine:
+
+```powershell
+git lfs install
+git lfs version
+```
+
+After cloning the repository, download LFS files with:
+
+```powershell
+git lfs pull
+```
+
+For a faster clone without downloading large files immediately:
+
+```powershell
+$env:GIT_LFS_SKIP_SMUDGE = "1"
+git clone git@github.com:FieldDiTian/AI-GP-Simulator-v1.0.3364.git
+cd AI-GP-Simulator-v1.0.3364
+git lfs pull --include "logs/raw/**,logs/processed/**,checkpoints/**"
+```
+
+Generated logs and checkpoints are still ignored by `.gitignore` by default.
+This is intentional: it prevents accidentally pushing every local run. When you
+want to publish a selected dataset or checkpoint through LFS, add it explicitly
+with `-f`:
+
+```powershell
+# Raw collection logs
+git add -f logs\raw\my_run_001.jsonl
+
+# Processed training arrays
+git add -f logs\processed\my_dataset\train.npz
+git add -f logs\processed\my_dataset\val.npz
+git add -f logs\processed\my_dataset\test.npz
+
+# Model weights
+git add -f checkpoints\my_model\best_val_model.pt
+
+# Small metadata can also be published when useful
+git add -f logs\processed\my_dataset\normalization_stats.json
+git add -f logs\processed\my_dataset\dataset_summary.json
+git add -f checkpoints\my_model\normalization_stats.json
+git add -f checkpoints\my_model\training_curve.csv
+```
+
+Before committing, verify that large files are tracked by LFS:
+
+```powershell
+git lfs status
+git lfs ls-files
+```
+
+Then commit and push normally:
+
+```powershell
+git commit -m "Add selected FlightSim training data"
+git push origin main
+```
+
+Do not publish `logs/pipeline_runs`, `logs/ui_screenshots`, or temporary
+debug outputs unless they are needed for reproducing a specific issue. GitHub
+LFS has storage and bandwidth quotas, so prefer publishing curated runs,
+processed datasets, and final checkpoints instead of every exploratory run.
+
 ## What Is Collected
 
 The collector connects to FlightSim through MAVLink on `127.0.0.1:14550`,
