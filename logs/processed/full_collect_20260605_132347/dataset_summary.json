@@ -1,0 +1,10 @@
+{
+  "raw_rows": 102869,
+  "segments": 19,
+  "samples": 58095,
+  "train_samples": 41325,
+  "val_samples": 7369,
+  "test_samples": 9401,
+  "dropped_windows": 0,
+  "collision_filter_policy": "drop collision row and suffix within each run_id/reset_counter segment; post-reset data is kept as a new segment"
+}

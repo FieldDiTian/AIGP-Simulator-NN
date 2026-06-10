@@ -1,0 +1,165 @@
+{
+  "run_prefix": "targeted_fill_20260605_150012",
+  "profiles": [
+    "high_roll_pitch_response",
+    "coupled_rpyt_combo",
+    "high_speed_yaw_roll_correction",
+    "low_speed_hover_attitude_perturb",
+    "boundary_approach_recover",
+    "climb_descend_turn",
+    "high_omega_thrust_response"
+  ],
+  "raw_logs": [
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_01_high_roll_pitch_response_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_05_boundary_approach_recover_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_06_climb_descend_turn_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_07_high_omega_thrust_response_try01.jsonl"
+  ],
+  "processed_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\targeted_fill_20260605_150012",
+  "checkpoint_dir": null,
+  "coverage_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\coverage\\targeted_fill_20260605_150012",
+  "validation_results": [
+    {
+      "profile": "high_roll_pitch_response",
+      "run_id": "targeted_fill_20260605_150012_01_high_roll_pitch_response_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_01_high_roll_pitch_response_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_01_high_roll_pitch_response_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6857,
+        "displacement_m": 1050.0724603283556,
+        "max_speed_mps": 35.28322145697322,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "coupled_rpyt_combo",
+      "run_id": "targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6858,
+        "displacement_m": 1455.7638613209908,
+        "max_speed_mps": 35.40797776389402,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "high_speed_yaw_roll_correction",
+      "run_id": "targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6865,
+        "displacement_m": 713.7683001954549,
+        "max_speed_mps": 38.64590977396106,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "low_speed_hover_attitude_perturb",
+      "run_id": "targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6868,
+        "displacement_m": 1138.3502525295241,
+        "max_speed_mps": 31.04473704234396,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "boundary_approach_recover",
+      "run_id": "targeted_fill_20260605_150012_05_boundary_approach_recover_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_05_boundary_approach_recover_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_05_boundary_approach_recover_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6856,
+        "displacement_m": 1002.9391862389854,
+        "max_speed_mps": 37.46343561392652,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "climb_descend_turn",
+      "run_id": "targeted_fill_20260605_150012_06_climb_descend_turn_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_06_climb_descend_turn_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_06_climb_descend_turn_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6855,
+        "displacement_m": 1118.0305306824403,
+        "max_speed_mps": 39.55772465900605,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "high_omega_thrust_response",
+      "run_id": "targeted_fill_20260605_150012_07_high_omega_thrust_response_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_07_high_omega_thrust_response_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_07_high_omega_thrust_response_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6849,
+        "displacement_m": 2080.5839790382993,
+        "max_speed_mps": 31.42374861538171,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    }
+  ],
+  "commands": [
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile high_roll_pitch_response --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id targeted_fill_20260605_150012_01_high_roll_pitch_response_try01 --seed 1",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_01_high_roll_pitch_response_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile coupled_rpyt_combo --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01 --seed 2",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile high_speed_yaw_roll_correction --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01 --seed 3",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile low_speed_hover_attitude_perturb --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01 --seed 4",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile boundary_approach_recover --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id targeted_fill_20260605_150012_05_boundary_approach_recover_try01 --seed 5",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_05_boundary_approach_recover_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile climb_descend_turn --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id targeted_fill_20260605_150012_06_climb_descend_turn_try01 --seed 6",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_06_climb_descend_turn_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile high_omega_thrust_response --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id targeted_fill_20260605_150012_07_high_omega_thrust_response_try01 --seed 7",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_07_high_omega_thrust_response_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\dataset\\build_dataset.py\" --input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_01_high_roll_pitch_response_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_05_boundary_approach_recover_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_06_climb_descend_turn_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_07_high_omega_thrust_response_try01.jsonl\" --output-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\targeted_fill_20260605_150012\" --k 10 --hz 60.0 --max-rate 1.0",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\evaluation\\analyze_coverage.py\" --input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_01_high_roll_pitch_response_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_05_boundary_approach_recover_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_06_climb_descend_turn_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_07_high_omega_thrust_response_try01.jsonl\" --output-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\coverage\\targeted_fill_20260605_150012\" --k 10 --hz 60.0 --max-rate 1.0 --min-samples-per-bin 50"
+  ],
+  "uses_wrapper_from_stage": "dataset/evaluation/coverage",
+  "raw_collection_uses_wrapper": false
+}

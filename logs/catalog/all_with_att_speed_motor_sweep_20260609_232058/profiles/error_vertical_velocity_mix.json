@@ -1,0 +1,65 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\att_speed_motor_sweep_20260609_232058_10_error_vertical_velocity_mix_try01.jsonl",
+    "file": "att_speed_motor_sweep_20260609_232058_10_error_vertical_velocity_mix_try01.jsonl",
+    "run_id": "att_speed_motor_sweep_20260609_232058_10_error_vertical_velocity_mix_try01",
+    "profile": "error_vertical_velocity_mix",
+    "category": "high_error_vertical_velocity",
+    "coverage_goal": "high-error vertical velocity and thrust/pitch bins",
+    "metadata": {
+      "profile": "error_vertical_velocity_mix",
+      "profile_category": "high_error_vertical_velocity",
+      "coverage_goal": "high-error vertical velocity and thrust/pitch bins",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6858,
+    "duration_s": 118.170379
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\closedloop9_targeted_topup_20260609_225305_05_error_vertical_velocity_mix_try01.jsonl",
+    "file": "closedloop9_targeted_topup_20260609_225305_05_error_vertical_velocity_mix_try01.jsonl",
+    "run_id": "closedloop9_targeted_topup_20260609_225305_05_error_vertical_velocity_mix_try01",
+    "profile": "error_vertical_velocity_mix",
+    "category": "high_error_vertical_velocity",
+    "coverage_goal": "high-error vertical velocity and thrust/pitch bins",
+    "metadata": {
+      "profile": "error_vertical_velocity_mix",
+      "profile_category": "high_error_vertical_velocity",
+      "coverage_goal": "high-error vertical velocity and thrust/pitch bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10321,
+    "duration_s": 178.0281285
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\high_error_fill_20260605_154651_05_error_vertical_velocity_mix_try01.jsonl",
+    "file": "high_error_fill_20260605_154651_05_error_vertical_velocity_mix_try01.jsonl",
+    "run_id": "high_error_fill_20260605_154651_05_error_vertical_velocity_mix_try01",
+    "profile": "error_vertical_velocity_mix",
+    "category": "high_error_vertical_velocity",
+    "coverage_goal": "high-error vertical velocity and thrust/pitch bins",
+    "metadata": {
+      "profile": "error_vertical_velocity_mix",
+      "profile_category": "high_error_vertical_velocity",
+      "coverage_goal": "high-error vertical velocity and thrust/pitch bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10336,
+    "duration_s": 178.0274234
+  }
+]

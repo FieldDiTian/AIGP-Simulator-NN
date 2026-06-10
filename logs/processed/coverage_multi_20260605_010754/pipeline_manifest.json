@@ -1,0 +1,336 @@
+{
+  "run_prefix": "coverage_multi_20260605_010754",
+  "profiles": [
+    "hover_perturb",
+    "roll_step",
+    "pitch_step",
+    "yaw_step",
+    "thrust_step",
+    "roll_sine_sweep",
+    "pitch_sine_sweep",
+    "yaw_sine_sweep",
+    "thrust_sine_sweep",
+    "smooth_random",
+    "race_like",
+    "forward_flight",
+    "left_turn",
+    "right_turn",
+    "climb_descend"
+  ],
+  "raw_logs": [
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_01_hover_perturb.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_02_roll_step.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_04_yaw_step.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_06_roll_sine_sweep.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_07_pitch_sine_sweep.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_08_yaw_sine_sweep.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_09_thrust_sine_sweep.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_10_smooth_random.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_11_race_like.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_12_forward_flight.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_13_left_turn.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_14_right_turn.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_15_climb_descend.jsonl"
+  ],
+  "processed_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\coverage_multi_20260605_010754",
+  "checkpoint_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\checkpoints\\coverage_multi_20260605_010754",
+  "coverage_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\coverage\\coverage_multi_20260605_010754",
+  "validation_results": [
+    {
+      "profile": "hover_perturb",
+      "run_id": "coverage_multi_20260605_010754_01_hover_perturb",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_01_hover_perturb.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_01_hover_perturb.jsonl",
+        "valid": true,
+        "complete_rows": 1157,
+        "displacement_m": 439.58831064840575,
+        "max_speed_mps": 24.194028178530704,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "roll_step",
+      "run_id": "coverage_multi_20260605_010754_02_roll_step",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_02_roll_step.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_02_roll_step.jsonl",
+        "valid": true,
+        "complete_rows": 1157,
+        "displacement_m": 457.8088985814047,
+        "max_speed_mps": 24.38402605201387,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "pitch_step",
+      "run_id": "coverage_multi_20260605_010754_03_pitch_step",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl",
+        "valid": true,
+        "complete_rows": 1160,
+        "displacement_m": 415.3018140085363,
+        "max_speed_mps": 21.902503429597225,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "yaw_step",
+      "run_id": "coverage_multi_20260605_010754_04_yaw_step",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_04_yaw_step.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_04_yaw_step.jsonl",
+        "valid": true,
+        "complete_rows": 1156,
+        "displacement_m": 444.71925848460336,
+        "max_speed_mps": 23.581420606170898,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "thrust_step",
+      "run_id": "coverage_multi_20260605_010754_05_thrust_step",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl",
+        "valid": true,
+        "complete_rows": 1158,
+        "displacement_m": 434.6081986967385,
+        "max_speed_mps": 25.427875766691468,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "roll_sine_sweep",
+      "run_id": "coverage_multi_20260605_010754_06_roll_sine_sweep",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_06_roll_sine_sweep.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_06_roll_sine_sweep.jsonl",
+        "valid": true,
+        "complete_rows": 1157,
+        "displacement_m": 511.55566301615056,
+        "max_speed_mps": 27.854522819356195,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "pitch_sine_sweep",
+      "run_id": "coverage_multi_20260605_010754_07_pitch_sine_sweep",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_07_pitch_sine_sweep.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_07_pitch_sine_sweep.jsonl",
+        "valid": true,
+        "complete_rows": 1157,
+        "displacement_m": 447.4105743808133,
+        "max_speed_mps": 24.33476803955892,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "yaw_sine_sweep",
+      "run_id": "coverage_multi_20260605_010754_08_yaw_sine_sweep",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_08_yaw_sine_sweep.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_08_yaw_sine_sweep.jsonl",
+        "valid": true,
+        "complete_rows": 1157,
+        "displacement_m": 451.38590122540296,
+        "max_speed_mps": 23.959694956140424,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "thrust_sine_sweep",
+      "run_id": "coverage_multi_20260605_010754_09_thrust_sine_sweep",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_09_thrust_sine_sweep.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_09_thrust_sine_sweep.jsonl",
+        "valid": true,
+        "complete_rows": 1160,
+        "displacement_m": 433.0648452631875,
+        "max_speed_mps": 26.045418270003125,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "smooth_random",
+      "run_id": "coverage_multi_20260605_010754_10_smooth_random",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_10_smooth_random.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_10_smooth_random.jsonl",
+        "valid": true,
+        "complete_rows": 1157,
+        "displacement_m": 464.98181297297816,
+        "max_speed_mps": 27.45580505537145,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "race_like",
+      "run_id": "coverage_multi_20260605_010754_11_race_like",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_11_race_like.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_11_race_like.jsonl",
+        "valid": true,
+        "complete_rows": 1159,
+        "displacement_m": 190.2089824725451,
+        "max_speed_mps": 35.760369924887904,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "forward_flight",
+      "run_id": "coverage_multi_20260605_010754_12_forward_flight",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_12_forward_flight.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_12_forward_flight.jsonl",
+        "valid": true,
+        "complete_rows": 1156,
+        "displacement_m": 92.83570332458861,
+        "max_speed_mps": 36.368912899920424,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "left_turn",
+      "run_id": "coverage_multi_20260605_010754_13_left_turn",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_13_left_turn.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_13_left_turn.jsonl",
+        "valid": true,
+        "complete_rows": 1157,
+        "displacement_m": 441.5449227365497,
+        "max_speed_mps": 28.524688866931523,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "right_turn",
+      "run_id": "coverage_multi_20260605_010754_14_right_turn",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_14_right_turn.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_14_right_turn.jsonl",
+        "valid": true,
+        "complete_rows": 1157,
+        "displacement_m": 442.45681343068543,
+        "max_speed_mps": 28.525578429950844,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "climb_descend",
+      "run_id": "coverage_multi_20260605_010754_15_climb_descend",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_15_climb_descend.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_15_climb_descend.jsonl",
+        "valid": true,
+        "complete_rows": 1158,
+        "displacement_m": 450.2555351710534,
+        "max_speed_mps": 28.84767474749022,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    }
+  ],
+  "commands": [
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile hover_perturb --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_01_hover_perturb --seed 1",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_01_hover_perturb.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile roll_step --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_02_roll_step --seed 2",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_02_roll_step.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile pitch_step --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_03_pitch_step --seed 3",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile yaw_step --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_04_yaw_step --seed 4",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_04_yaw_step.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile thrust_step --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_05_thrust_step --seed 5",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile roll_sine_sweep --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_06_roll_sine_sweep --seed 6",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_06_roll_sine_sweep.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile pitch_sine_sweep --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_07_pitch_sine_sweep --seed 7",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_07_pitch_sine_sweep.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile yaw_sine_sweep --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_08_yaw_sine_sweep --seed 8",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_08_yaw_sine_sweep.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile thrust_sine_sweep --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_09_thrust_sine_sweep --seed 9",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_09_thrust_sine_sweep.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile smooth_random --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_10_smooth_random --seed 10",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_10_smooth_random.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile race_like --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_11_race_like --seed 11",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_11_race_like.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile forward_flight --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_12_forward_flight --seed 12",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_12_forward_flight.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile left_turn --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_13_left_turn --seed 13",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_13_left_turn.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile right_turn --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_14_right_turn --seed 14",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_14_right_turn.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile climb_descend --duration-s 20.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id coverage_multi_20260605_010754_15_climb_descend --seed 15",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_15_climb_descend.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\dataset\\build_dataset.py\" --input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_01_hover_perturb.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_02_roll_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_04_yaw_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_06_roll_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_07_pitch_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_08_yaw_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_09_thrust_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_10_smooth_random.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_11_race_like.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_12_forward_flight.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_13_left_turn.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_14_right_turn.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_15_climb_descend.jsonl\" --output-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\coverage_multi_20260605_010754\" --k 10 --hz 60.0 --max-rate 1.0",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\training\\train_mlp_dynamics.py\" --data-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\coverage_multi_20260605_010754\" --checkpoint-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\checkpoints\\coverage_multi_20260605_010754\" --config-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\configs\" --hidden-dim 64 --num-layers 2 --batch-size 512 --epochs 2 --patience 2 --lr 0.001 --weight-decay 0.0001 --device cuda",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\evaluation\\eval_one_step.py\" --checkpoint \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\checkpoints\\coverage_multi_20260605_010754\\best_val_model.pt\" --raw-input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_01_hover_perturb.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_02_roll_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_04_yaw_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_06_roll_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_07_pitch_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_08_yaw_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_09_thrust_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_10_smooth_random.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_11_race_like.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_12_forward_flight.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_13_left_turn.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_14_right_turn.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_15_climb_descend.jsonl\" --device cuda",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\evaluation\\eval_rollout.py\" --checkpoint \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\checkpoints\\coverage_multi_20260605_010754\\best_val_model.pt\" --raw-input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_01_hover_perturb.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_02_roll_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_04_yaw_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_06_roll_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_07_pitch_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_08_yaw_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_09_thrust_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_10_smooth_random.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_11_race_like.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_12_forward_flight.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_13_left_turn.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_14_right_turn.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_15_climb_descend.jsonl\" --horizons-s 1.0 3.0 --device cuda",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\evaluation\\analyze_coverage.py\" --input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_01_hover_perturb.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_02_roll_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_04_yaw_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_06_roll_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_07_pitch_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_08_yaw_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_09_thrust_sine_sweep.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_10_smooth_random.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_11_race_like.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_12_forward_flight.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_13_left_turn.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_14_right_turn.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_15_climb_descend.jsonl\" --output-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\coverage\\coverage_multi_20260605_010754\" --k 10 --hz 60.0 --max-rate 1.0 --min-samples-per-bin 50 --checkpoint \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\checkpoints\\coverage_multi_20260605_010754\\best_val_model.pt\" --device cuda"
+  ],
+  "uses_wrapper_from_stage": "dataset/evaluation/coverage",
+  "raw_collection_uses_wrapper": false
+}

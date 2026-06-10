@@ -1,0 +1,60 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\att_speed_motor_sweep_20260609_232058_03_thrust_step_try01.jsonl",
+    "file": "att_speed_motor_sweep_20260609_232058_03_thrust_step_try01.jsonl",
+    "run_id": "att_speed_motor_sweep_20260609_232058_03_thrust_step_try01",
+    "profile": "thrust_step",
+    "category": "single_axis_step",
+    "coverage_goal": "thrust step response",
+    "metadata": {
+      "profile": "thrust_step",
+      "profile_category": "single_axis_step",
+      "coverage_goal": "thrust step response",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6833,
+    "duration_s": 118.0691563
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl",
+    "file": "coverage_multi_20260605_010754_05_thrust_step.jsonl",
+    "run_id": "coverage_multi_20260605_010754_05_thrust_step",
+    "profile": "thrust_step",
+    "category": "single_axis_step",
+    "coverage_goal": "thrust step response",
+    "metadata": {
+      "profile": "thrust_step",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1158,
+    "duration_s": 19.914973
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_09_thrust_step_try01.jsonl",
+    "file": "full_collect_20260605_132347_09_thrust_step_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_09_thrust_step_try01",
+    "profile": "thrust_step",
+    "category": "single_axis_step",
+    "coverage_goal": "thrust step response",
+    "metadata": {
+      "profile": "thrust_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6863,
+    "duration_s": 118.084394
+  }
+]

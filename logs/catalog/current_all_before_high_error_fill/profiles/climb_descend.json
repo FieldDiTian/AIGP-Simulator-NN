@@ -1,0 +1,76 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_15_climb_descend.jsonl",
+    "file": "coverage_multi_20260605_010754_15_climb_descend.jsonl",
+    "run_id": "coverage_multi_20260605_010754_15_climb_descend",
+    "profile": "climb_descend",
+    "category": "baseline_vertical",
+    "coverage_goal": "vertical thrust response",
+    "metadata": {
+      "profile": "climb_descend",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1158,
+    "duration_s": 19.9071485
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_05_climb_descend_try01.jsonl",
+    "file": "full_collect_20260605_132347_05_climb_descend_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_05_climb_descend_try01",
+    "profile": "climb_descend",
+    "category": "baseline_vertical",
+    "coverage_goal": "vertical thrust response",
+    "metadata": {
+      "profile": "climb_descend",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6861,
+    "duration_s": 118.1157592
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_07_climb_descend_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_07_climb_descend_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_07_climb_descend_try01",
+    "profile": "climb_descend",
+    "category": "baseline_vertical",
+    "coverage_goal": "vertical thrust response",
+    "metadata": {
+      "profile": "climb_descend",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6856,
+    "duration_s": 118.0747838
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\smoke_climb_descend_20260604_233227.jsonl",
+    "file": "smoke_climb_descend_20260604_233227.jsonl",
+    "run_id": "smoke_climb_descend_20260604_233227",
+    "profile": "climb_descend",
+    "category": "baseline_vertical",
+    "coverage_goal": "vertical thrust response",
+    "metadata": {
+      "profile": "climb_descend",
+      "duration_s": 8.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 458,
+    "duration_s": 7.8710937
+  }
+]

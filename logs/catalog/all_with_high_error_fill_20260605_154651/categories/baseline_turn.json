@@ -1,0 +1,150 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_13_left_turn.jsonl",
+    "file": "coverage_multi_20260605_010754_13_left_turn.jsonl",
+    "run_id": "coverage_multi_20260605_010754_13_left_turn",
+    "profile": "left_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "left turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "left_turn",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.9079435
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_03_left_turn_try01.jsonl",
+    "file": "full_collect_20260605_132347_03_left_turn_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_03_left_turn_try01",
+    "profile": "left_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "left turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "left_turn",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6850,
+    "duration_s": 118.0786608
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_06_left_turn_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_06_left_turn_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_06_left_turn_try01",
+    "profile": "left_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "left turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "left_turn",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6858,
+    "duration_s": 118.098798
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\smoke_left_turn_20260604_232857.jsonl",
+    "file": "smoke_left_turn_20260604_232857.jsonl",
+    "run_id": "smoke_left_turn_20260604_232857",
+    "profile": "left_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "left turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "left_turn",
+      "duration_s": 8.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 460,
+    "duration_s": 7.9231855
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_14_right_turn.jsonl",
+    "file": "coverage_multi_20260605_010754_14_right_turn.jsonl",
+    "run_id": "coverage_multi_20260605_010754_14_right_turn",
+    "profile": "right_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "right turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "right_turn",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1158,
+    "duration_s": 19.9473317
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_04_right_turn_try01.jsonl",
+    "file": "full_collect_20260605_132347_04_right_turn_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_04_right_turn_try01",
+    "profile": "right_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "right turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "right_turn",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6870,
+    "duration_s": 118.0900388
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_02_right_turn_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_02_right_turn_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_02_right_turn_try01",
+    "profile": "right_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "right turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "right_turn",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6859,
+    "duration_s": 118.0418256
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\smoke_right_turn_20260604_233044.jsonl",
+    "file": "smoke_right_turn_20260604_233044.jsonl",
+    "run_id": "smoke_right_turn_20260604_233044",
+    "profile": "right_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "right turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "right_turn",
+      "duration_s": 8.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 460,
+    "duration_s": 7.907354
+  }
+]

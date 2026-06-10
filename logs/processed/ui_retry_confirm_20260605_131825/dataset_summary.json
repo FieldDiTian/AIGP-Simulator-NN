@@ -1,0 +1,9 @@
+{
+  "raw_rows": 235,
+  "segments": 1,
+  "samples": 232,
+  "train_samples": 232,
+  "val_samples": 0,
+  "test_samples": 0,
+  "dropped_windows": 0
+}

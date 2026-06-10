@@ -1,0 +1,23 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\high_error_fill_20260605_154651_02_error_pitch_brake_velocity_try01.jsonl",
+    "file": "high_error_fill_20260605_154651_02_error_pitch_brake_velocity_try01.jsonl",
+    "run_id": "high_error_fill_20260605_154651_02_error_pitch_brake_velocity_try01",
+    "profile": "error_pitch_brake_velocity",
+    "category": "high_error_velocity_pitch",
+    "coverage_goal": "high-error v_body_x vs pitch-rate bins",
+    "metadata": {
+      "profile": "error_pitch_brake_velocity",
+      "profile_category": "high_error_velocity_pitch",
+      "coverage_goal": "high-error v_body_x vs pitch-rate bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10360,
+    "duration_s": 178.1557345
+  }
+]

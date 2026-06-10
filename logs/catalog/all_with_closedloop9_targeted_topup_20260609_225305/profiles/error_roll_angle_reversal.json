@@ -1,0 +1,44 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\closedloop9_targeted_topup_20260609_225305_03_error_roll_angle_reversal_try01.jsonl",
+    "file": "closedloop9_targeted_topup_20260609_225305_03_error_roll_angle_reversal_try01.jsonl",
+    "run_id": "closedloop9_targeted_topup_20260609_225305_03_error_roll_angle_reversal_try01",
+    "profile": "error_roll_angle_reversal",
+    "category": "high_error_roll_angle",
+    "coverage_goal": "high-error roll angle vs roll-rate bins",
+    "metadata": {
+      "profile": "error_roll_angle_reversal",
+      "profile_category": "high_error_roll_angle",
+      "coverage_goal": "high-error roll angle vs roll-rate bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10329,
+    "duration_s": 178.0760981
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\high_error_fill_20260605_154651_03_error_roll_angle_reversal_try01.jsonl",
+    "file": "high_error_fill_20260605_154651_03_error_roll_angle_reversal_try01.jsonl",
+    "run_id": "high_error_fill_20260605_154651_03_error_roll_angle_reversal_try01",
+    "profile": "error_roll_angle_reversal",
+    "category": "high_error_roll_angle",
+    "coverage_goal": "high-error roll angle vs roll-rate bins",
+    "metadata": {
+      "profile": "error_roll_angle_reversal",
+      "profile_category": "high_error_roll_angle",
+      "coverage_goal": "high-error roll angle vs roll-rate bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10355,
+    "duration_s": 178.0964743
+  }
+]

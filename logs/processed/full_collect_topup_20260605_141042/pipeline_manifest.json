@@ -1,0 +1,186 @@
+{
+  "run_prefix": "full_collect_topup_20260605_141042",
+  "profiles": [
+    "forward_flight",
+    "right_turn",
+    "pitch_step",
+    "yaw_sine_sweep",
+    "race_like",
+    "left_turn",
+    "climb_descend",
+    "forward_flight"
+  ],
+  "raw_logs": [
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_01_forward_flight_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_02_right_turn_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_05_race_like_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_06_left_turn_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_07_climb_descend_try01.jsonl",
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_08_forward_flight_try01.jsonl"
+  ],
+  "processed_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\full_collect_topup_20260605_141042",
+  "checkpoint_dir": null,
+  "coverage_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\coverage\\full_collect_topup_20260605_141042",
+  "validation_results": [
+    {
+      "profile": "forward_flight",
+      "run_id": "full_collect_topup_20260605_141042_01_forward_flight_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_01_forward_flight_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_01_forward_flight_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6866,
+        "displacement_m": 671.2007498439534,
+        "max_speed_mps": 36.83704748214515,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "right_turn",
+      "run_id": "full_collect_topup_20260605_141042_02_right_turn_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_02_right_turn_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_02_right_turn_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6859,
+        "displacement_m": 2847.288990491881,
+        "max_speed_mps": 30.747387165176505,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "pitch_step",
+      "run_id": "full_collect_topup_20260605_141042_03_pitch_step_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6861,
+        "displacement_m": 3174.804867897804,
+        "max_speed_mps": 27.794859829699394,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "yaw_sine_sweep",
+      "run_id": "full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6869,
+        "displacement_m": 3600.0217006892444,
+        "max_speed_mps": 30.72130604323652,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "race_like",
+      "run_id": "full_collect_topup_20260605_141042_05_race_like_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_05_race_like_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_05_race_like_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6858,
+        "displacement_m": 860.7132619819032,
+        "max_speed_mps": 36.24885073487525,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "left_turn",
+      "run_id": "full_collect_topup_20260605_141042_06_left_turn_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_06_left_turn_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_06_left_turn_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6858,
+        "displacement_m": 2560.3533559856187,
+        "max_speed_mps": 33.05218975514395,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "climb_descend",
+      "run_id": "full_collect_topup_20260605_141042_07_climb_descend_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_07_climb_descend_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_07_climb_descend_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6856,
+        "displacement_m": 2028.658167607871,
+        "max_speed_mps": 33.98339986327447,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    },
+    {
+      "profile": "forward_flight",
+      "run_id": "full_collect_topup_20260605_141042_08_forward_flight_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_08_forward_flight_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_08_forward_flight_try01.jsonl",
+        "valid": true,
+        "complete_rows": 6865,
+        "displacement_m": 670.8144022230344,
+        "max_speed_mps": 36.83720511517974,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    }
+  ],
+  "commands": [
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile forward_flight --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id full_collect_topup_20260605_141042_01_forward_flight_try01 --seed 1",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_01_forward_flight_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile right_turn --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id full_collect_topup_20260605_141042_02_right_turn_try01 --seed 2",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_02_right_turn_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile pitch_step --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id full_collect_topup_20260605_141042_03_pitch_step_try01 --seed 3",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile yaw_sine_sweep --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01 --seed 4",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile race_like --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id full_collect_topup_20260605_141042_05_race_like_try01 --seed 5",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_05_race_like_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile left_turn --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id full_collect_topup_20260605_141042_06_left_turn_try01 --seed 6",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_06_left_turn_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile climb_descend --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id full_collect_topup_20260605_141042_07_climb_descend_try01 --seed 7",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_07_climb_descend_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile forward_flight --duration-s 120.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id full_collect_topup_20260605_141042_08_forward_flight_try01 --seed 8",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_08_forward_flight_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\dataset\\build_dataset.py\" --input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_01_forward_flight_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_02_right_turn_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_05_race_like_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_06_left_turn_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_07_climb_descend_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_08_forward_flight_try01.jsonl\" --output-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\full_collect_topup_20260605_141042\" --k 10 --hz 60.0 --max-rate 1.0",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\evaluation\\analyze_coverage.py\" --input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_01_forward_flight_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_02_right_turn_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_05_race_like_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_06_left_turn_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_07_climb_descend_try01.jsonl\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_08_forward_flight_try01.jsonl\" --output-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\coverage\\full_collect_topup_20260605_141042\" --k 10 --hz 60.0 --max-rate 1.0 --min-samples-per-bin 50"
+  ],
+  "uses_wrapper_from_stage": "dataset/evaluation/coverage",
+  "raw_collection_uses_wrapper": false
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01.jsonl",
+    "file": "targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01.jsonl",
+    "run_id": "targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01",
+    "profile": "low_speed_feedback_perturb",
+    "category": "targeted_low_speed",
+    "coverage_goal": "telemetry-braked low-speed attitude perturbation",
+    "metadata": {
+      "profile": "low_speed_feedback_perturb",
+      "duration_s": 150.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": false
+    },
+    "dynamics_rows": 8704,
+    "duration_s": 149.9334156
+  }
+]

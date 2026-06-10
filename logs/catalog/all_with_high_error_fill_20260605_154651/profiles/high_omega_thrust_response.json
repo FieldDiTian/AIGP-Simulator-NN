@@ -1,0 +1,21 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_07_high_omega_thrust_response_try01.jsonl",
+    "file": "targeted_fill_20260605_150012_07_high_omega_thrust_response_try01.jsonl",
+    "run_id": "targeted_fill_20260605_150012_07_high_omega_thrust_response_try01",
+    "profile": "high_omega_thrust_response",
+    "category": "targeted_high_omega",
+    "coverage_goal": "high angular-rate thrust response",
+    "metadata": {
+      "profile": "high_omega_thrust_response",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6849,
+    "duration_s": 118.076362
+  }
+]

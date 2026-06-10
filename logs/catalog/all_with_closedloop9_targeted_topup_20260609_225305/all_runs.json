@@ -1,0 +1,1272 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_12_forward_flight.jsonl",
+    "file": "coverage_multi_20260605_010754_12_forward_flight.jsonl",
+    "run_id": "coverage_multi_20260605_010754_12_forward_flight",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1156,
+    "duration_s": 19.9057912
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_auto_confirm_20260605_131847_01_forward_flight_try01.jsonl",
+    "file": "full_auto_confirm_20260605_131847_01_forward_flight_try01.jsonl",
+    "run_id": "full_auto_confirm_20260605_131847_01_forward_flight_try01",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 4.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 122,
+    "duration_s": 2.0891718
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_02_forward_flight_try01.jsonl",
+    "file": "full_collect_20260605_132347_02_forward_flight_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_02_forward_flight_try01",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6861,
+    "duration_s": 118.1034837
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_01_forward_flight_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_01_forward_flight_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_01_forward_flight_try01",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6866,
+    "duration_s": 118.0923085
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_08_forward_flight_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_08_forward_flight_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_08_forward_flight_try01",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6865,
+    "duration_s": 118.0805693
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\smoke_forward_flight_20260604_225556.jsonl",
+    "file": "smoke_forward_flight_20260604_225556.jsonl",
+    "run_id": "smoke_forward_flight_20260604_225556",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 8.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 457,
+    "duration_s": 7.8494879
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_confirm_20260605_010408_01_forward_flight.jsonl",
+    "file": "ui_confirm_20260605_010408_01_forward_flight.jsonl",
+    "run_id": "ui_confirm_20260605_010408_01_forward_flight",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 8.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 459,
+    "duration_s": 7.8912828
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_retry_confirm_20260605_131825_01_forward_flight.jsonl",
+    "file": "ui_retry_confirm_20260605_131825_01_forward_flight.jsonl",
+    "run_id": "ui_retry_confirm_20260605_131825_01_forward_flight",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 6.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 235,
+    "duration_s": 4.0261683
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_01_hover_perturb.jsonl",
+    "file": "coverage_multi_20260605_010754_01_hover_perturb.jsonl",
+    "run_id": "coverage_multi_20260605_010754_01_hover_perturb",
+    "profile": "hover_perturb",
+    "category": "baseline_hover",
+    "coverage_goal": "hover thrust response",
+    "metadata": {
+      "profile": "hover_perturb",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.8809818
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_01_hover_perturb_try01.jsonl",
+    "file": "full_collect_20260605_132347_01_hover_perturb_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_01_hover_perturb_try01",
+    "profile": "hover_perturb",
+    "category": "baseline_hover",
+    "coverage_goal": "hover thrust response",
+    "metadata": {
+      "profile": "hover_perturb",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6851,
+    "duration_s": 118.0787311
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\real_smoke_20260604_213648.jsonl",
+    "file": "real_smoke_20260604_213648.jsonl",
+    "run_id": "real_smoke_20260604_213648",
+    "profile": "hover_perturb",
+    "category": "baseline_hover",
+    "coverage_goal": "hover thrust response",
+    "metadata": {
+      "profile": "hover_perturb",
+      "duration_s": 10.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 576,
+    "duration_s": 9.9526588
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\real_ui_smoke_20260604_213908.jsonl",
+    "file": "real_ui_smoke_20260604_213908.jsonl",
+    "run_id": "real_ui_smoke_20260604_213908",
+    "profile": "hover_perturb",
+    "category": "baseline_hover",
+    "coverage_goal": "hover thrust response",
+    "metadata": {
+      "profile": "hover_perturb",
+      "duration_s": 10.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 575,
+    "duration_s": 9.9174256
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_auto_smoke_20260604_221416.jsonl",
+    "file": "ui_auto_smoke_20260604_221416.jsonl",
+    "run_id": "ui_auto_smoke_20260604_221416",
+    "profile": "hover_perturb",
+    "category": "baseline_hover",
+    "coverage_goal": "hover thrust response",
+    "metadata": {
+      "profile": "hover_perturb",
+      "duration_s": 10.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 577,
+    "duration_s": 9.8911976
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_13_left_turn.jsonl",
+    "file": "coverage_multi_20260605_010754_13_left_turn.jsonl",
+    "run_id": "coverage_multi_20260605_010754_13_left_turn",
+    "profile": "left_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "left turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "left_turn",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.9079435
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_03_left_turn_try01.jsonl",
+    "file": "full_collect_20260605_132347_03_left_turn_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_03_left_turn_try01",
+    "profile": "left_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "left turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "left_turn",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6850,
+    "duration_s": 118.0786608
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_06_left_turn_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_06_left_turn_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_06_left_turn_try01",
+    "profile": "left_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "left turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "left_turn",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6858,
+    "duration_s": 118.098798
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\smoke_left_turn_20260604_232857.jsonl",
+    "file": "smoke_left_turn_20260604_232857.jsonl",
+    "run_id": "smoke_left_turn_20260604_232857",
+    "profile": "left_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "left turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "left_turn",
+      "duration_s": 8.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 460,
+    "duration_s": 7.9231855
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_14_right_turn.jsonl",
+    "file": "coverage_multi_20260605_010754_14_right_turn.jsonl",
+    "run_id": "coverage_multi_20260605_010754_14_right_turn",
+    "profile": "right_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "right turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "right_turn",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1158,
+    "duration_s": 19.9473317
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_04_right_turn_try01.jsonl",
+    "file": "full_collect_20260605_132347_04_right_turn_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_04_right_turn_try01",
+    "profile": "right_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "right turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "right_turn",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6870,
+    "duration_s": 118.0900388
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_02_right_turn_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_02_right_turn_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_02_right_turn_try01",
+    "profile": "right_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "right turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "right_turn",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6859,
+    "duration_s": 118.0418256
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\smoke_right_turn_20260604_233044.jsonl",
+    "file": "smoke_right_turn_20260604_233044.jsonl",
+    "run_id": "smoke_right_turn_20260604_233044",
+    "profile": "right_turn",
+    "category": "baseline_turn",
+    "coverage_goal": "right turn coupled roll/yaw response",
+    "metadata": {
+      "profile": "right_turn",
+      "duration_s": 8.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 460,
+    "duration_s": 7.907354
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_15_climb_descend.jsonl",
+    "file": "coverage_multi_20260605_010754_15_climb_descend.jsonl",
+    "run_id": "coverage_multi_20260605_010754_15_climb_descend",
+    "profile": "climb_descend",
+    "category": "baseline_vertical",
+    "coverage_goal": "vertical thrust response",
+    "metadata": {
+      "profile": "climb_descend",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1158,
+    "duration_s": 19.9071485
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_05_climb_descend_try01.jsonl",
+    "file": "full_collect_20260605_132347_05_climb_descend_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_05_climb_descend_try01",
+    "profile": "climb_descend",
+    "category": "baseline_vertical",
+    "coverage_goal": "vertical thrust response",
+    "metadata": {
+      "profile": "climb_descend",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6861,
+    "duration_s": 118.1157592
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_07_climb_descend_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_07_climb_descend_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_07_climb_descend_try01",
+    "profile": "climb_descend",
+    "category": "baseline_vertical",
+    "coverage_goal": "vertical thrust response",
+    "metadata": {
+      "profile": "climb_descend",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6856,
+    "duration_s": 118.0747838
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\smoke_climb_descend_20260604_233227.jsonl",
+    "file": "smoke_climb_descend_20260604_233227.jsonl",
+    "run_id": "smoke_climb_descend_20260604_233227",
+    "profile": "climb_descend",
+    "category": "baseline_vertical",
+    "coverage_goal": "vertical thrust response",
+    "metadata": {
+      "profile": "climb_descend",
+      "duration_s": 8.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 458,
+    "duration_s": 7.8710937
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\closedloop9_targeted_topup_20260609_225305_01_error_attitude_corner_response_try01.jsonl",
+    "file": "closedloop9_targeted_topup_20260609_225305_01_error_attitude_corner_response_try01.jsonl",
+    "run_id": "closedloop9_targeted_topup_20260609_225305_01_error_attitude_corner_response_try01",
+    "profile": "error_attitude_corner_response",
+    "category": "high_error_attitude",
+    "coverage_goal": "high-error gravity_body corner bins",
+    "metadata": {
+      "profile": "error_attitude_corner_response",
+      "profile_category": "high_error_attitude",
+      "coverage_goal": "high-error gravity_body corner bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10331,
+    "duration_s": 178.0355337
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\high_error_fill_20260605_154651_01_error_attitude_corner_response_try01.jsonl",
+    "file": "high_error_fill_20260605_154651_01_error_attitude_corner_response_try01.jsonl",
+    "run_id": "high_error_fill_20260605_154651_01_error_attitude_corner_response_try01",
+    "profile": "error_attitude_corner_response",
+    "category": "high_error_attitude",
+    "coverage_goal": "high-error gravity_body corner bins",
+    "metadata": {
+      "profile": "error_attitude_corner_response",
+      "profile_category": "high_error_attitude",
+      "coverage_goal": "high-error gravity_body corner bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10347,
+    "duration_s": 178.0576854
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\closedloop9_targeted_topup_20260609_225305_03_error_roll_angle_reversal_try01.jsonl",
+    "file": "closedloop9_targeted_topup_20260609_225305_03_error_roll_angle_reversal_try01.jsonl",
+    "run_id": "closedloop9_targeted_topup_20260609_225305_03_error_roll_angle_reversal_try01",
+    "profile": "error_roll_angle_reversal",
+    "category": "high_error_roll_angle",
+    "coverage_goal": "high-error roll angle vs roll-rate bins",
+    "metadata": {
+      "profile": "error_roll_angle_reversal",
+      "profile_category": "high_error_roll_angle",
+      "coverage_goal": "high-error roll angle vs roll-rate bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10329,
+    "duration_s": 178.0760981
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\high_error_fill_20260605_154651_03_error_roll_angle_reversal_try01.jsonl",
+    "file": "high_error_fill_20260605_154651_03_error_roll_angle_reversal_try01.jsonl",
+    "run_id": "high_error_fill_20260605_154651_03_error_roll_angle_reversal_try01",
+    "profile": "error_roll_angle_reversal",
+    "category": "high_error_roll_angle",
+    "coverage_goal": "high-error roll angle vs roll-rate bins",
+    "metadata": {
+      "profile": "error_roll_angle_reversal",
+      "profile_category": "high_error_roll_angle",
+      "coverage_goal": "high-error roll angle vs roll-rate bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10355,
+    "duration_s": 178.0964743
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\closedloop9_targeted_topup_20260609_225305_02_error_pitch_brake_velocity_try01.jsonl",
+    "file": "closedloop9_targeted_topup_20260609_225305_02_error_pitch_brake_velocity_try01.jsonl",
+    "run_id": "closedloop9_targeted_topup_20260609_225305_02_error_pitch_brake_velocity_try01",
+    "profile": "error_pitch_brake_velocity",
+    "category": "high_error_velocity_pitch",
+    "coverage_goal": "high-error v_body_x vs pitch-rate bins",
+    "metadata": {
+      "profile": "error_pitch_brake_velocity",
+      "profile_category": "high_error_velocity_pitch",
+      "coverage_goal": "high-error v_body_x vs pitch-rate bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10339,
+    "duration_s": 178.0864946
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\high_error_fill_20260605_154651_02_error_pitch_brake_velocity_try01.jsonl",
+    "file": "high_error_fill_20260605_154651_02_error_pitch_brake_velocity_try01.jsonl",
+    "run_id": "high_error_fill_20260605_154651_02_error_pitch_brake_velocity_try01",
+    "profile": "error_pitch_brake_velocity",
+    "category": "high_error_velocity_pitch",
+    "coverage_goal": "high-error v_body_x vs pitch-rate bins",
+    "metadata": {
+      "profile": "error_pitch_brake_velocity",
+      "profile_category": "high_error_velocity_pitch",
+      "coverage_goal": "high-error v_body_x vs pitch-rate bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10360,
+    "duration_s": 178.1557345
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\closedloop9_targeted_topup_20260609_225305_05_error_vertical_velocity_mix_try01.jsonl",
+    "file": "closedloop9_targeted_topup_20260609_225305_05_error_vertical_velocity_mix_try01.jsonl",
+    "run_id": "closedloop9_targeted_topup_20260609_225305_05_error_vertical_velocity_mix_try01",
+    "profile": "error_vertical_velocity_mix",
+    "category": "high_error_vertical_velocity",
+    "coverage_goal": "high-error vertical velocity and thrust/pitch bins",
+    "metadata": {
+      "profile": "error_vertical_velocity_mix",
+      "profile_category": "high_error_vertical_velocity",
+      "coverage_goal": "high-error vertical velocity and thrust/pitch bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10321,
+    "duration_s": 178.0281285
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\high_error_fill_20260605_154651_05_error_vertical_velocity_mix_try01.jsonl",
+    "file": "high_error_fill_20260605_154651_05_error_vertical_velocity_mix_try01.jsonl",
+    "run_id": "high_error_fill_20260605_154651_05_error_vertical_velocity_mix_try01",
+    "profile": "error_vertical_velocity_mix",
+    "category": "high_error_vertical_velocity",
+    "coverage_goal": "high-error vertical velocity and thrust/pitch bins",
+    "metadata": {
+      "profile": "error_vertical_velocity_mix",
+      "profile_category": "high_error_vertical_velocity",
+      "coverage_goal": "high-error vertical velocity and thrust/pitch bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10336,
+    "duration_s": 178.0274234
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\closedloop9_targeted_topup_20260609_225305_04_error_yaw_thrust_grid_try01.jsonl",
+    "file": "closedloop9_targeted_topup_20260609_225305_04_error_yaw_thrust_grid_try01.jsonl",
+    "run_id": "closedloop9_targeted_topup_20260609_225305_04_error_yaw_thrust_grid_try01",
+    "profile": "error_yaw_thrust_grid",
+    "category": "high_error_yaw_thrust",
+    "coverage_goal": "high-error yaw-rate vs thrust bins",
+    "metadata": {
+      "profile": "error_yaw_thrust_grid",
+      "profile_category": "high_error_yaw_thrust",
+      "coverage_goal": "high-error yaw-rate vs thrust bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10329,
+    "duration_s": 178.103819
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\high_error_fill_20260605_154651_04_error_yaw_thrust_grid_try01.jsonl",
+    "file": "high_error_fill_20260605_154651_04_error_yaw_thrust_grid_try01.jsonl",
+    "run_id": "high_error_fill_20260605_154651_04_error_yaw_thrust_grid_try01",
+    "profile": "error_yaw_thrust_grid",
+    "category": "high_error_yaw_thrust",
+    "coverage_goal": "high-error yaw-rate vs thrust bins",
+    "metadata": {
+      "profile": "error_yaw_thrust_grid",
+      "profile_category": "high_error_yaw_thrust",
+      "coverage_goal": "high-error yaw-rate vs thrust bins",
+      "duration_s": 180.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 10348,
+    "duration_s": 178.1636291
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_11_race_like.jsonl",
+    "file": "coverage_multi_20260605_010754_11_race_like.jsonl",
+    "run_id": "coverage_multi_20260605_010754_11_race_like",
+    "profile": "race_like",
+    "category": "race_like",
+    "coverage_goal": "race-like mixed control distribution",
+    "metadata": {
+      "profile": "race_like",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1159,
+    "duration_s": 19.9191654
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_15_race_like_try01.jsonl",
+    "file": "full_collect_20260605_132347_15_race_like_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_15_race_like_try01",
+    "profile": "race_like",
+    "category": "race_like",
+    "coverage_goal": "race-like mixed control distribution",
+    "metadata": {
+      "profile": "race_like",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6859,
+    "duration_s": 118.095873
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_05_race_like_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_05_race_like_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_05_race_like_try01",
+    "profile": "race_like",
+    "category": "race_like",
+    "coverage_goal": "race-like mixed control distribution",
+    "metadata": {
+      "profile": "race_like",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6858,
+    "duration_s": 118.0888157
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_10_smooth_random.jsonl",
+    "file": "coverage_multi_20260605_010754_10_smooth_random.jsonl",
+    "run_id": "coverage_multi_20260605_010754_10_smooth_random",
+    "profile": "smooth_random",
+    "category": "random_combo",
+    "coverage_goal": "smooth random combined controls",
+    "metadata": {
+      "profile": "smooth_random",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.9070503
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_14_smooth_random_try01.jsonl",
+    "file": "full_collect_20260605_132347_14_smooth_random_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_14_smooth_random_try01",
+    "profile": "smooth_random",
+    "category": "random_combo",
+    "coverage_goal": "smooth random combined controls",
+    "metadata": {
+      "profile": "smooth_random",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6854,
+    "duration_s": 118.0905177
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl",
+    "file": "coverage_multi_20260605_010754_03_pitch_step.jsonl",
+    "run_id": "coverage_multi_20260605_010754_03_pitch_step",
+    "profile": "pitch_step",
+    "category": "single_axis_step",
+    "coverage_goal": "pitch-rate step response",
+    "metadata": {
+      "profile": "pitch_step",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1160,
+    "duration_s": 19.9741708
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_07_pitch_step_try01.jsonl",
+    "file": "full_collect_20260605_132347_07_pitch_step_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_07_pitch_step_try01",
+    "profile": "pitch_step",
+    "category": "single_axis_step",
+    "coverage_goal": "pitch-rate step response",
+    "metadata": {
+      "profile": "pitch_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6865,
+    "duration_s": 118.1014113
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_03_pitch_step_try01",
+    "profile": "pitch_step",
+    "category": "single_axis_step",
+    "coverage_goal": "pitch-rate step response",
+    "metadata": {
+      "profile": "pitch_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6861,
+    "duration_s": 118.0796811
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_02_roll_step.jsonl",
+    "file": "coverage_multi_20260605_010754_02_roll_step.jsonl",
+    "run_id": "coverage_multi_20260605_010754_02_roll_step",
+    "profile": "roll_step",
+    "category": "single_axis_step",
+    "coverage_goal": "roll-rate step response",
+    "metadata": {
+      "profile": "roll_step",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.9158937
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_06_roll_step_try01.jsonl",
+    "file": "full_collect_20260605_132347_06_roll_step_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_06_roll_step_try01",
+    "profile": "roll_step",
+    "category": "single_axis_step",
+    "coverage_goal": "roll-rate step response",
+    "metadata": {
+      "profile": "roll_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6839,
+    "duration_s": 118.038717
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl",
+    "file": "coverage_multi_20260605_010754_05_thrust_step.jsonl",
+    "run_id": "coverage_multi_20260605_010754_05_thrust_step",
+    "profile": "thrust_step",
+    "category": "single_axis_step",
+    "coverage_goal": "thrust step response",
+    "metadata": {
+      "profile": "thrust_step",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1158,
+    "duration_s": 19.914973
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_09_thrust_step_try01.jsonl",
+    "file": "full_collect_20260605_132347_09_thrust_step_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_09_thrust_step_try01",
+    "profile": "thrust_step",
+    "category": "single_axis_step",
+    "coverage_goal": "thrust step response",
+    "metadata": {
+      "profile": "thrust_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6863,
+    "duration_s": 118.084394
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_04_yaw_step.jsonl",
+    "file": "coverage_multi_20260605_010754_04_yaw_step.jsonl",
+    "run_id": "coverage_multi_20260605_010754_04_yaw_step",
+    "profile": "yaw_step",
+    "category": "single_axis_step",
+    "coverage_goal": "yaw-rate step response",
+    "metadata": {
+      "profile": "yaw_step",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1156,
+    "duration_s": 19.8640525
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_08_yaw_step_try01.jsonl",
+    "file": "full_collect_20260605_132347_08_yaw_step_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_08_yaw_step_try01",
+    "profile": "yaw_step",
+    "category": "single_axis_step",
+    "coverage_goal": "yaw-rate step response",
+    "metadata": {
+      "profile": "yaw_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6856,
+    "duration_s": 118.0896378
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_07_pitch_sine_sweep.jsonl",
+    "file": "coverage_multi_20260605_010754_07_pitch_sine_sweep.jsonl",
+    "run_id": "coverage_multi_20260605_010754_07_pitch_sine_sweep",
+    "profile": "pitch_sine_sweep",
+    "category": "single_axis_sweep",
+    "coverage_goal": "pitch-rate frequency response",
+    "metadata": {
+      "profile": "pitch_sine_sweep",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.9044893
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_11_pitch_sine_sweep_try01.jsonl",
+    "file": "full_collect_20260605_132347_11_pitch_sine_sweep_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_11_pitch_sine_sweep_try01",
+    "profile": "pitch_sine_sweep",
+    "category": "single_axis_sweep",
+    "coverage_goal": "pitch-rate frequency response",
+    "metadata": {
+      "profile": "pitch_sine_sweep",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6858,
+    "duration_s": 118.0928059
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_06_roll_sine_sweep.jsonl",
+    "file": "coverage_multi_20260605_010754_06_roll_sine_sweep.jsonl",
+    "run_id": "coverage_multi_20260605_010754_06_roll_sine_sweep",
+    "profile": "roll_sine_sweep",
+    "category": "single_axis_sweep",
+    "coverage_goal": "roll-rate frequency response",
+    "metadata": {
+      "profile": "roll_sine_sweep",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.8988012
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_10_roll_sine_sweep_try01.jsonl",
+    "file": "full_collect_20260605_132347_10_roll_sine_sweep_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_10_roll_sine_sweep_try01",
+    "profile": "roll_sine_sweep",
+    "category": "single_axis_sweep",
+    "coverage_goal": "roll-rate frequency response",
+    "metadata": {
+      "profile": "roll_sine_sweep",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6866,
+    "duration_s": 118.1128175
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_09_thrust_sine_sweep.jsonl",
+    "file": "coverage_multi_20260605_010754_09_thrust_sine_sweep.jsonl",
+    "run_id": "coverage_multi_20260605_010754_09_thrust_sine_sweep",
+    "profile": "thrust_sine_sweep",
+    "category": "single_axis_sweep",
+    "coverage_goal": "thrust frequency response",
+    "metadata": {
+      "profile": "thrust_sine_sweep",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1161,
+    "duration_s": 19.9662251
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_13_thrust_sine_sweep_try01.jsonl",
+    "file": "full_collect_20260605_132347_13_thrust_sine_sweep_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_13_thrust_sine_sweep_try01",
+    "profile": "thrust_sine_sweep",
+    "category": "single_axis_sweep",
+    "coverage_goal": "thrust frequency response",
+    "metadata": {
+      "profile": "thrust_sine_sweep",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6853,
+    "duration_s": 118.0916753
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_08_yaw_sine_sweep.jsonl",
+    "file": "coverage_multi_20260605_010754_08_yaw_sine_sweep.jsonl",
+    "run_id": "coverage_multi_20260605_010754_08_yaw_sine_sweep",
+    "profile": "yaw_sine_sweep",
+    "category": "single_axis_sweep",
+    "coverage_goal": "yaw-rate frequency response",
+    "metadata": {
+      "profile": "yaw_sine_sweep",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.8866362
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_12_yaw_sine_sweep_try01.jsonl",
+    "file": "full_collect_20260605_132347_12_yaw_sine_sweep_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_12_yaw_sine_sweep_try01",
+    "profile": "yaw_sine_sweep",
+    "category": "single_axis_sweep",
+    "coverage_goal": "yaw-rate frequency response",
+    "metadata": {
+      "profile": "yaw_sine_sweep",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6863,
+    "duration_s": 118.1070566
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_04_yaw_sine_sweep_try01",
+    "profile": "yaw_sine_sweep",
+    "category": "single_axis_sweep",
+    "coverage_goal": "yaw-rate frequency response",
+    "metadata": {
+      "profile": "yaw_sine_sweep",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6869,
+    "duration_s": 118.1443155
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_01_high_roll_pitch_response_try01.jsonl",
+    "file": "targeted_fill_20260605_150012_01_high_roll_pitch_response_try01.jsonl",
+    "run_id": "targeted_fill_20260605_150012_01_high_roll_pitch_response_try01",
+    "profile": "high_roll_pitch_response",
+    "category": "targeted_attitude",
+    "coverage_goal": "large roll/pitch attitude response",
+    "metadata": {
+      "profile": "high_roll_pitch_response",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6857,
+    "duration_s": 118.0509231
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_05_boundary_approach_recover_try01.jsonl",
+    "file": "targeted_fill_20260605_150012_05_boundary_approach_recover_try01.jsonl",
+    "run_id": "targeted_fill_20260605_150012_05_boundary_approach_recover_try01",
+    "profile": "boundary_approach_recover",
+    "category": "targeted_boundary",
+    "coverage_goal": "near-boundary normal dynamics before collision",
+    "metadata": {
+      "profile": "boundary_approach_recover",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6856,
+    "duration_s": 118.0887105
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01.jsonl",
+    "file": "targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01.jsonl",
+    "run_id": "targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01",
+    "profile": "coupled_rpyt_combo",
+    "category": "targeted_coupled_control",
+    "coverage_goal": "roll/pitch/yaw/thrust simultaneous combinations",
+    "metadata": {
+      "profile": "coupled_rpyt_combo",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6858,
+    "duration_s": 118.0725941
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_07_high_omega_thrust_response_try01.jsonl",
+    "file": "targeted_fill_20260605_150012_07_high_omega_thrust_response_try01.jsonl",
+    "run_id": "targeted_fill_20260605_150012_07_high_omega_thrust_response_try01",
+    "profile": "high_omega_thrust_response",
+    "category": "targeted_high_omega",
+    "coverage_goal": "high angular-rate thrust response",
+    "metadata": {
+      "profile": "high_omega_thrust_response",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6849,
+    "duration_s": 118.076362
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01.jsonl",
+    "file": "targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01.jsonl",
+    "run_id": "targeted_fill_20260605_150012_03_high_speed_yaw_roll_correction_try01",
+    "profile": "high_speed_yaw_roll_correction",
+    "category": "targeted_high_speed",
+    "coverage_goal": "high-speed yaw and roll correction",
+    "metadata": {
+      "profile": "high_speed_yaw_roll_correction",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6865,
+    "duration_s": 118.090274
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01.jsonl",
+    "file": "targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01.jsonl",
+    "run_id": "targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01",
+    "profile": "low_speed_feedback_perturb",
+    "category": "targeted_low_speed",
+    "coverage_goal": "telemetry-braked low-speed attitude perturbation",
+    "metadata": {
+      "profile": "low_speed_feedback_perturb",
+      "duration_s": 150.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": false
+    },
+    "dynamics_rows": 8704,
+    "duration_s": 149.9334156
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01.jsonl",
+    "file": "targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01.jsonl",
+    "run_id": "targeted_fill_20260605_150012_04_low_speed_hover_attitude_perturb_try01",
+    "profile": "low_speed_hover_attitude_perturb",
+    "category": "targeted_low_speed",
+    "coverage_goal": "low-speed or hover attitude perturbation",
+    "metadata": {
+      "profile": "low_speed_hover_attitude_perturb",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6868,
+    "duration_s": 118.1521631
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_low_speed_noprobe_20260605_152037_01_low_speed_hover_attitude_perturb_try01.jsonl",
+    "file": "targeted_low_speed_noprobe_20260605_152037_01_low_speed_hover_attitude_perturb_try01.jsonl",
+    "run_id": "targeted_low_speed_noprobe_20260605_152037_01_low_speed_hover_attitude_perturb_try01",
+    "profile": "low_speed_hover_attitude_perturb",
+    "category": "targeted_low_speed",
+    "coverage_goal": "low-speed or hover attitude perturbation",
+    "metadata": {
+      "profile": "low_speed_hover_attitude_perturb",
+      "duration_s": 150.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": false
+    },
+    "dynamics_rows": 8708,
+    "duration_s": 149.8369442
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_06_climb_descend_turn_try01.jsonl",
+    "file": "targeted_fill_20260605_150012_06_climb_descend_turn_try01.jsonl",
+    "run_id": "targeted_fill_20260605_150012_06_climb_descend_turn_try01",
+    "profile": "climb_descend_turn",
+    "category": "targeted_vertical_turn",
+    "coverage_goal": "climb/descend while turning",
+    "metadata": {
+      "profile": "climb_descend_turn",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6855,
+    "duration_s": 118.0747286
+  }
+]

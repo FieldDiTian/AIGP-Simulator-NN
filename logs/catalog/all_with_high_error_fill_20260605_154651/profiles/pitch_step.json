@@ -1,0 +1,58 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl",
+    "file": "coverage_multi_20260605_010754_03_pitch_step.jsonl",
+    "run_id": "coverage_multi_20260605_010754_03_pitch_step",
+    "profile": "pitch_step",
+    "category": "single_axis_step",
+    "coverage_goal": "pitch-rate step response",
+    "metadata": {
+      "profile": "pitch_step",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1160,
+    "duration_s": 19.9741708
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_07_pitch_step_try01.jsonl",
+    "file": "full_collect_20260605_132347_07_pitch_step_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_07_pitch_step_try01",
+    "profile": "pitch_step",
+    "category": "single_axis_step",
+    "coverage_goal": "pitch-rate step response",
+    "metadata": {
+      "profile": "pitch_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6865,
+    "duration_s": 118.1014113
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_03_pitch_step_try01",
+    "profile": "pitch_step",
+    "category": "single_axis_step",
+    "coverage_goal": "pitch-rate step response",
+    "metadata": {
+      "profile": "pitch_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6861,
+    "duration_s": 118.0796811
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_11_race_like.jsonl",
+    "file": "coverage_multi_20260605_010754_11_race_like.jsonl",
+    "run_id": "coverage_multi_20260605_010754_11_race_like",
+    "profile": "race_like",
+    "category": "race_like",
+    "coverage_goal": "race-like mixed control distribution",
+    "metadata": {
+      "profile": "race_like",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1159,
+    "duration_s": 19.9191654
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_15_race_like_try01.jsonl",
+    "file": "full_collect_20260605_132347_15_race_like_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_15_race_like_try01",
+    "profile": "race_like",
+    "category": "race_like",
+    "coverage_goal": "race-like mixed control distribution",
+    "metadata": {
+      "profile": "race_like",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6859,
+    "duration_s": 118.095873
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_05_race_like_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_05_race_like_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_05_race_like_try01",
+    "profile": "race_like",
+    "category": "race_like",
+    "coverage_goal": "race-like mixed control distribution",
+    "metadata": {
+      "profile": "race_like",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6858,
+    "duration_s": 118.0888157
+  }
+]

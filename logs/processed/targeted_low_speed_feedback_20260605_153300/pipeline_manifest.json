@@ -1,0 +1,39 @@
+{
+  "run_prefix": "targeted_low_speed_feedback_20260605_153300",
+  "profiles": [
+    "low_speed_feedback_perturb"
+  ],
+  "raw_logs": [
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01.jsonl"
+  ],
+  "processed_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\targeted_low_speed_feedback_20260605_153300",
+  "checkpoint_dir": null,
+  "coverage_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\coverage\\targeted_low_speed_feedback_20260605_153300",
+  "validation_results": [
+    {
+      "profile": "low_speed_feedback_perturb",
+      "run_id": "targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01.jsonl",
+        "valid": true,
+        "complete_rows": 8704,
+        "displacement_m": 1209.0921586053169,
+        "max_speed_mps": 27.154024317777605,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    }
+  ],
+  "commands": [
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 90.0 --attempts 3 --restart-delay-s 2.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile low_speed_feedback_perturb --duration-s 150.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 30.0 --telemetry-timeout-s 30.0 --probe-duration-s 1.5 --probe-min-displacement-m 0.05 --probe-min-speed-mps 0.08 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01 --seed 1 --skip-flight-response-probe",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01.jsonl\" --json",
+    "powershell -NoProfile -Command \"Get-Process | Where-Object { $_.ProcessName -in @('FlightSim','DCGame-Win64-Shipping') } | Stop-Process -Force\"",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\dataset\\build_dataset.py\" --input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01.jsonl\" --output-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\targeted_low_speed_feedback_20260605_153300\" --k 10 --hz 60.0 --max-rate 1.0",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\evaluation\\analyze_coverage.py\" --input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_low_speed_feedback_20260605_153300_01_low_speed_feedback_perturb_try01.jsonl\" --output-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\coverage\\targeted_low_speed_feedback_20260605_153300\" --k 10 --hz 60.0 --max-rate 1.0 --min-samples-per-bin 50"
+  ],
+  "uses_wrapper_from_stage": "dataset/evaluation/coverage",
+  "raw_collection_uses_wrapper": false
+}

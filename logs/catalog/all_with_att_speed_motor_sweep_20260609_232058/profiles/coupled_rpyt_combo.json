@@ -1,0 +1,42 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\att_speed_motor_sweep_20260609_232058_11_coupled_rpyt_combo_try01.jsonl",
+    "file": "att_speed_motor_sweep_20260609_232058_11_coupled_rpyt_combo_try01.jsonl",
+    "run_id": "att_speed_motor_sweep_20260609_232058_11_coupled_rpyt_combo_try01",
+    "profile": "coupled_rpyt_combo",
+    "category": "targeted_coupled_control",
+    "coverage_goal": "roll/pitch/yaw/thrust simultaneous combinations",
+    "metadata": {
+      "profile": "coupled_rpyt_combo",
+      "profile_category": "targeted_coupled_control",
+      "coverage_goal": "roll/pitch/yaw/thrust simultaneous combinations",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6848,
+    "duration_s": 118.1398792
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01.jsonl",
+    "file": "targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01.jsonl",
+    "run_id": "targeted_fill_20260605_150012_02_coupled_rpyt_combo_try01",
+    "profile": "coupled_rpyt_combo",
+    "category": "targeted_coupled_control",
+    "coverage_goal": "roll/pitch/yaw/thrust simultaneous combinations",
+    "metadata": {
+      "profile": "coupled_rpyt_combo",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6858,
+    "duration_s": 118.0725941
+  }
+]

@@ -1,0 +1,190 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_03_pitch_step.jsonl",
+    "file": "coverage_multi_20260605_010754_03_pitch_step.jsonl",
+    "run_id": "coverage_multi_20260605_010754_03_pitch_step",
+    "profile": "pitch_step",
+    "category": "single_axis_step",
+    "coverage_goal": "pitch-rate step response",
+    "metadata": {
+      "profile": "pitch_step",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1160,
+    "duration_s": 19.9741708
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_07_pitch_step_try01.jsonl",
+    "file": "full_collect_20260605_132347_07_pitch_step_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_07_pitch_step_try01",
+    "profile": "pitch_step",
+    "category": "single_axis_step",
+    "coverage_goal": "pitch-rate step response",
+    "metadata": {
+      "profile": "pitch_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6865,
+    "duration_s": 118.1014113
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_03_pitch_step_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_03_pitch_step_try01",
+    "profile": "pitch_step",
+    "category": "single_axis_step",
+    "coverage_goal": "pitch-rate step response",
+    "metadata": {
+      "profile": "pitch_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6861,
+    "duration_s": 118.0796811
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_02_roll_step.jsonl",
+    "file": "coverage_multi_20260605_010754_02_roll_step.jsonl",
+    "run_id": "coverage_multi_20260605_010754_02_roll_step",
+    "profile": "roll_step",
+    "category": "single_axis_step",
+    "coverage_goal": "roll-rate step response",
+    "metadata": {
+      "profile": "roll_step",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.9158937
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_06_roll_step_try01.jsonl",
+    "file": "full_collect_20260605_132347_06_roll_step_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_06_roll_step_try01",
+    "profile": "roll_step",
+    "category": "single_axis_step",
+    "coverage_goal": "roll-rate step response",
+    "metadata": {
+      "profile": "roll_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6839,
+    "duration_s": 118.038717
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\att_speed_motor_sweep_20260609_232058_03_thrust_step_try01.jsonl",
+    "file": "att_speed_motor_sweep_20260609_232058_03_thrust_step_try01.jsonl",
+    "run_id": "att_speed_motor_sweep_20260609_232058_03_thrust_step_try01",
+    "profile": "thrust_step",
+    "category": "single_axis_step",
+    "coverage_goal": "thrust step response",
+    "metadata": {
+      "profile": "thrust_step",
+      "profile_category": "single_axis_step",
+      "coverage_goal": "thrust step response",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6833,
+    "duration_s": 118.0691563
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_05_thrust_step.jsonl",
+    "file": "coverage_multi_20260605_010754_05_thrust_step.jsonl",
+    "run_id": "coverage_multi_20260605_010754_05_thrust_step",
+    "profile": "thrust_step",
+    "category": "single_axis_step",
+    "coverage_goal": "thrust step response",
+    "metadata": {
+      "profile": "thrust_step",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1158,
+    "duration_s": 19.914973
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_09_thrust_step_try01.jsonl",
+    "file": "full_collect_20260605_132347_09_thrust_step_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_09_thrust_step_try01",
+    "profile": "thrust_step",
+    "category": "single_axis_step",
+    "coverage_goal": "thrust step response",
+    "metadata": {
+      "profile": "thrust_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6863,
+    "duration_s": 118.084394
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_04_yaw_step.jsonl",
+    "file": "coverage_multi_20260605_010754_04_yaw_step.jsonl",
+    "run_id": "coverage_multi_20260605_010754_04_yaw_step",
+    "profile": "yaw_step",
+    "category": "single_axis_step",
+    "coverage_goal": "yaw-rate step response",
+    "metadata": {
+      "profile": "yaw_step",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1156,
+    "duration_s": 19.8640525
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_08_yaw_step_try01.jsonl",
+    "file": "full_collect_20260605_132347_08_yaw_step_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_08_yaw_step_try01",
+    "profile": "yaw_step",
+    "category": "single_axis_step",
+    "coverage_goal": "yaw-rate step response",
+    "metadata": {
+      "profile": "yaw_step",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6856,
+    "duration_s": 118.0896378
+  }
+]

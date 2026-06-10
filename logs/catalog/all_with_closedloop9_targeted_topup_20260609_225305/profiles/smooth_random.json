@@ -1,0 +1,39 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_10_smooth_random.jsonl",
+    "file": "coverage_multi_20260605_010754_10_smooth_random.jsonl",
+    "run_id": "coverage_multi_20260605_010754_10_smooth_random",
+    "profile": "smooth_random",
+    "category": "random_combo",
+    "coverage_goal": "smooth random combined controls",
+    "metadata": {
+      "profile": "smooth_random",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.9070503
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_14_smooth_random_try01.jsonl",
+    "file": "full_collect_20260605_132347_14_smooth_random_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_14_smooth_random_try01",
+    "profile": "smooth_random",
+    "category": "random_combo",
+    "coverage_goal": "smooth random combined controls",
+    "metadata": {
+      "profile": "smooth_random",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6854,
+    "duration_s": 118.0905177
+  }
+]

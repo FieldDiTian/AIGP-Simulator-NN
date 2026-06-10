@@ -1,0 +1,41 @@
+{
+  "run_prefix": "ui_confirm_20260605_010408",
+  "profiles": [
+    "forward_flight"
+  ],
+  "raw_logs": [
+    "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_confirm_20260605_010408_01_forward_flight.jsonl"
+  ],
+  "processed_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\ui_confirm_20260605_010408",
+  "checkpoint_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\checkpoints\\ui_confirm_20260605_010408",
+  "coverage_dir": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\coverage\\ui_confirm_20260605_010408",
+  "validation_results": [
+    {
+      "profile": "forward_flight",
+      "run_id": "ui_confirm_20260605_010408_01_forward_flight",
+      "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_confirm_20260605_010408_01_forward_flight.jsonl",
+      "validation": {
+        "log_path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_confirm_20260605_010408_01_forward_flight.jsonl",
+        "valid": true,
+        "complete_rows": 459,
+        "displacement_m": 28.97704284435443,
+        "max_speed_mps": 34.101139961554544,
+        "min_complete_rows": 120,
+        "min_displacement_m": 0.5,
+        "min_speed_mps": 0.3
+      }
+    }
+  ],
+  "commands": [
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\launch_flightsim.py\" --mode ui-auto --exe \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\AIGP_3364\\FlightSim.exe\" --host 127.0.0.1 --port 14550 --timeout-s 180.0 --ready-signal telemetry --save-screenshots",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\collect_identification_data.py\" --profile forward_flight --duration-s 8.0 --host 127.0.0.1 --port 14550 --heartbeat-timeout-s 60.0 --telemetry-timeout-s 60.0 --log-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\" --run-id ui_confirm_20260605_010408_01_forward_flight --seed 1",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\collection\\validate_dynamics_log.py\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_confirm_20260605_010408_01_forward_flight.jsonl\" --json",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\dataset\\build_dataset.py\" --input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_confirm_20260605_010408_01_forward_flight.jsonl\" --output-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\ui_confirm_20260605_010408\" --k 10 --hz 60.0 --max-rate 1.0",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\training\\train_mlp_dynamics.py\" --data-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\processed\\ui_confirm_20260605_010408\" --checkpoint-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\checkpoints\\ui_confirm_20260605_010408\" --config-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\configs\" --hidden-dim 64 --num-layers 2 --batch-size 256 --epochs 2 --patience 2 --lr 0.001 --weight-decay 0.0001 --device cuda",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\evaluation\\eval_one_step.py\" --checkpoint \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\checkpoints\\ui_confirm_20260605_010408\\best_val_model.pt\" --raw-input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_confirm_20260605_010408_01_forward_flight.jsonl\" --device cuda",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\evaluation\\eval_rollout.py\" --checkpoint \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\checkpoints\\ui_confirm_20260605_010408\\best_val_model.pt\" --raw-input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_confirm_20260605_010408_01_forward_flight.jsonl\" --horizons-s 1.0 --device cuda",
+    "\"C:\\Workspace\\AI-GP Simulator v1.0.3364\\.venv\\Scripts\\python.exe\" \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\dynamics\\evaluation\\analyze_coverage.py\" --input \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_confirm_20260605_010408_01_forward_flight.jsonl\" --output-dir \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\coverage\\ui_confirm_20260605_010408\" --k 10 --hz 60.0 --max-rate 1.0 --min-samples-per-bin 20 --checkpoint \"C:\\Workspace\\AI-GP Simulator v1.0.3364\\checkpoints\\ui_confirm_20260605_010408\\best_val_model.pt\" --device cuda"
+  ],
+  "uses_wrapper_from_stage": "dataset/evaluation/coverage",
+  "raw_collection_uses_wrapper": false
+}

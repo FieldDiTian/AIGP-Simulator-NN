@@ -1,0 +1,151 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_12_forward_flight.jsonl",
+    "file": "coverage_multi_20260605_010754_12_forward_flight.jsonl",
+    "run_id": "coverage_multi_20260605_010754_12_forward_flight",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1156,
+    "duration_s": 19.9057912
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_auto_confirm_20260605_131847_01_forward_flight_try01.jsonl",
+    "file": "full_auto_confirm_20260605_131847_01_forward_flight_try01.jsonl",
+    "run_id": "full_auto_confirm_20260605_131847_01_forward_flight_try01",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 4.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 122,
+    "duration_s": 2.0891718
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_02_forward_flight_try01.jsonl",
+    "file": "full_collect_20260605_132347_02_forward_flight_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_02_forward_flight_try01",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6861,
+    "duration_s": 118.1034837
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_01_forward_flight_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_01_forward_flight_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_01_forward_flight_try01",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6866,
+    "duration_s": 118.0923085
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_topup_20260605_141042_08_forward_flight_try01.jsonl",
+    "file": "full_collect_topup_20260605_141042_08_forward_flight_try01.jsonl",
+    "run_id": "full_collect_topup_20260605_141042_08_forward_flight_try01",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6865,
+    "duration_s": 118.0805693
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\smoke_forward_flight_20260604_225556.jsonl",
+    "file": "smoke_forward_flight_20260604_225556.jsonl",
+    "run_id": "smoke_forward_flight_20260604_225556",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 8.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 457,
+    "duration_s": 7.8494879
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_confirm_20260605_010408_01_forward_flight.jsonl",
+    "file": "ui_confirm_20260605_010408_01_forward_flight.jsonl",
+    "run_id": "ui_confirm_20260605_010408_01_forward_flight",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 8.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 459,
+    "duration_s": 7.8912828
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_retry_confirm_20260605_131825_01_forward_flight.jsonl",
+    "file": "ui_retry_confirm_20260605_131825_01_forward_flight.jsonl",
+    "run_id": "ui_retry_confirm_20260605_131825_01_forward_flight",
+    "profile": "forward_flight",
+    "category": "baseline_forward",
+    "coverage_goal": "forward acceleration and cruise response",
+    "metadata": {
+      "profile": "forward_flight",
+      "duration_s": 6.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 235,
+    "duration_s": 4.0261683
+  }
+]

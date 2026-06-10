@@ -1,0 +1,13 @@
+{
+  "raw_rows": 423084,
+  "segments": 91,
+  "samples": 298529,
+  "train_samples": 196251,
+  "val_samples": 45554,
+  "test_samples": 56724,
+  "dropped_windows": 0,
+  "collision_filtered_rows": 122916,
+  "stuck_position_filtered_rows": 10226,
+  "collision_filter_policy": "drop collision row and suffix within each run_id/reset_counter segment; post-reset data is kept as a new segment",
+  "stuck_position_filter_policy": "drop suffix within each run_id/reset_counter segment after reported p_ned changes by <= 0.0001 m for at least 0.5 s; post-reset data is kept as a new segment"
+}

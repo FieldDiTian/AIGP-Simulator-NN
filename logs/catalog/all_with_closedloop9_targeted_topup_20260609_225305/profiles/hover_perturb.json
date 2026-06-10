@@ -1,0 +1,93 @@
+[
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\coverage_multi_20260605_010754_01_hover_perturb.jsonl",
+    "file": "coverage_multi_20260605_010754_01_hover_perturb.jsonl",
+    "run_id": "coverage_multi_20260605_010754_01_hover_perturb",
+    "profile": "hover_perturb",
+    "category": "baseline_hover",
+    "coverage_goal": "hover thrust response",
+    "metadata": {
+      "profile": "hover_perturb",
+      "duration_s": 20.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 1157,
+    "duration_s": 19.8809818
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\full_collect_20260605_132347_01_hover_perturb_try01.jsonl",
+    "file": "full_collect_20260605_132347_01_hover_perturb_try01.jsonl",
+    "run_id": "full_collect_20260605_132347_01_hover_perturb_try01",
+    "profile": "hover_perturb",
+    "category": "baseline_hover",
+    "coverage_goal": "hover thrust response",
+    "metadata": {
+      "profile": "hover_perturb",
+      "duration_s": 120.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75,
+      "flight_response_probe": true
+    },
+    "dynamics_rows": 6851,
+    "duration_s": 118.0787311
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\real_smoke_20260604_213648.jsonl",
+    "file": "real_smoke_20260604_213648.jsonl",
+    "run_id": "real_smoke_20260604_213648",
+    "profile": "hover_perturb",
+    "category": "baseline_hover",
+    "coverage_goal": "hover thrust response",
+    "metadata": {
+      "profile": "hover_perturb",
+      "duration_s": 10.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 576,
+    "duration_s": 9.9526588
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\real_ui_smoke_20260604_213908.jsonl",
+    "file": "real_ui_smoke_20260604_213908.jsonl",
+    "run_id": "real_ui_smoke_20260604_213908",
+    "profile": "hover_perturb",
+    "category": "baseline_hover",
+    "coverage_goal": "hover thrust response",
+    "metadata": {
+      "profile": "hover_perturb",
+      "duration_s": 10.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 575,
+    "duration_s": 9.9174256
+  },
+  {
+    "path": "C:\\Workspace\\AI-GP Simulator v1.0.3364\\logs\\raw\\ui_auto_smoke_20260604_221416.jsonl",
+    "file": "ui_auto_smoke_20260604_221416.jsonl",
+    "run_id": "ui_auto_smoke_20260604_221416",
+    "profile": "hover_perturb",
+    "category": "baseline_hover",
+    "coverage_goal": "hover thrust response",
+    "metadata": {
+      "profile": "hover_perturb",
+      "duration_s": 10.0,
+      "control_mode": "SET_ATTITUDE_TARGET",
+      "rate_limit_rad_s": 0.8,
+      "thrust_min": 0.35,
+      "thrust_max": 0.75
+    },
+    "dynamics_rows": 577,
+    "duration_s": 9.8911976
+  }
+]
