@@ -10,6 +10,40 @@ The implementation lives in:
 ros2_ws/src/aigp_bag_tools/
 ```
 
+## Fresh Clone And Pull Data
+
+Use Git LFS because raw JSONL logs, processed datasets, and checkpoints are
+large artifacts.
+
+Fresh Ubuntu/WSL machine:
+
+```bash
+sudo apt update
+sudo apt install git git-lfs
+git lfs install
+
+git clone git@github.com:FieldDiTian/AIGP-Simulator-NN.git
+cd AIGP-Simulator-NN
+git lfs pull --include "logs/raw/**,logs/catalog/**,logs/processed/**,checkpoints/**"
+```
+
+If the repository is already cloned:
+
+```bash
+cd AIGP-Simulator-NN
+git pull --ff-only
+git lfs pull --include "logs/raw/**,logs/catalog/**,logs/processed/**,checkpoints/**"
+```
+
+For rosbag conversion only, the minimum useful data is:
+
+```bash
+git lfs pull --include "logs/raw/**,logs/catalog/**"
+```
+
+Use the broader pull when you also want to compare rebuilt bag datasets against
+existing `logs/processed/**` outputs or evaluate existing checkpoints.
+
 ## Environment
 
 Use Ubuntu 22.04 with ROS 2 Humble. Windows remains useful for collecting data
@@ -27,6 +61,14 @@ sudo apt install \
 cd ros2_ws
 colcon build --packages-select aigp_bag_tools
 source install/setup.bash
+```
+
+After each new shell:
+
+```bash
+cd AIGP-Simulator-NN
+source /opt/ros/humble/setup.bash
+source ros2_ws/install/setup.bash
 ```
 
 ## Convert

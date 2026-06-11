@@ -4,6 +4,33 @@ This package converts `logs/raw/*.jsonl` FlightSim black-box dynamics logs into
 ROS 2 Humble rosbags. JSONL remains the original truth. The bag is a replay and
 simulation interface built from standard ROS messages.
 
+## Fresh Clone And Data Pull
+
+The source JSONL logs are stored through Git LFS.
+
+```bash
+sudo apt update
+sudo apt install git git-lfs
+git lfs install
+
+git clone git@github.com:FieldDiTian/AIGP-Simulator-NN.git
+cd AIGP-Simulator-NN
+git lfs pull --include "logs/raw/**,logs/catalog/**,logs/processed/**,checkpoints/**"
+```
+
+For conversion only, this smaller pull is enough:
+
+```bash
+git lfs pull --include "logs/raw/**,logs/catalog/**"
+```
+
+For an existing clone:
+
+```bash
+git pull --ff-only
+git lfs pull --include "logs/raw/**,logs/catalog/**,logs/processed/**,checkpoints/**"
+```
+
 ## Build
 
 Install ROS 2 Humble on Ubuntu 22.04, then install MAVROS messages:
@@ -18,6 +45,14 @@ sudo apt install \
 cd ros2_ws
 colcon build --packages-select aigp_bag_tools
 source install/setup.bash
+```
+
+After each new shell, source ROS and the workspace:
+
+```bash
+cd AIGP-Simulator-NN
+source /opt/ros/humble/setup.bash
+source ros2_ws/install/setup.bash
 ```
 
 Run tools from the repository root, or pass `--repo-root`.
