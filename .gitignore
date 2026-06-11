@@ -26,6 +26,9 @@ logs/ui_probe/*
 logs/ui_screenshots/*
 !logs/ui_screenshots/.gitkeep
 checkpoints/
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
 __pycache__/
 *.pyc
 .venv/
